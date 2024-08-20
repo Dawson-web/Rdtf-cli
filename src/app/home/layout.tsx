@@ -1,5 +1,5 @@
 "use client";
-import Menu from "@/components/client/menu";
+import Menu from "../../components/client/menu";
 import { themeConfig } from "@/config";
 import clsx from "clsx";
 
@@ -18,7 +18,7 @@ export default function DashboardLayout({
 
       <section
         className={clsx(
-          "  w-[clac(100vw-1rem] sm:w-[100vw] p-[1rem]  flex flex-col items-center  bg-gray-200 dark:bg-gray-800 min-h-screen"
+          "w-[clac(100vw-1rem] sm:w-[100vw] p-[1rem]  flex flex-col items-center  bg-gray-200 dark:bg-gray-800 min-h-screen"
         )}
       >
         {children}
