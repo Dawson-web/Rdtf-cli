@@ -41,7 +41,7 @@ export default function Page() {
         <div className="font-comfortaa text-xl font-semibold">| 找回</div>
       </div>
 
-      <div className="relative flex w-[30vw] max-w-[350px] flex-col items-center gap-2 overflow-hidden rounded-md border bg-white p-4 shadow-md">
+      <div className="relative flex w-[30vw] min-w-[320px] max-w-[400px]   flex-col items-center gap-2 overflow-hidden rounded-md border bg-white p-4 shadow-md">
         <form className="w-full" onSubmit={form.onSubmit((v) => {})}>
           {stage === "fill" && (
             <div className="flex flex-col gap-2">

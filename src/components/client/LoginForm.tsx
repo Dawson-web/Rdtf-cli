@@ -31,7 +31,7 @@ export default function Page() {
       </div>
       <form
         onSubmit={form.onSubmit((v) => {})}
-        className="relative flex w-[30vw] max-w-[350px] flex-col gap-2 overflow-hidden rounded-md border bg-white p-4 shadow-md"
+        className="relative flex w-[30vw] min-w-[320px] max-w-[400px]  flex-col gap-2 overflow-hidden rounded-md border bg-white p-4 shadow-md"
       >
         <TextInput
           label="邮箱"

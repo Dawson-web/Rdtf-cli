@@ -12,7 +12,7 @@ export const DarkMode = (props: any) => {
 
   return (
     <NavigationMenuItem
-      className={clsx(navigationMenuTriggerStyle(), " cursor-pointer")}
+      className={clsx(navigationMenuTriggerStyle(), " cursor-pointer ")}
     >
       <div
         className="text-nowrap flex gap-8"

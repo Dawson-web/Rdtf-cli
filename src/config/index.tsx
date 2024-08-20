@@ -1,4 +1,5 @@
 "use client";
+import { url } from "inspector";
 import {
   AlarmClock,
   Calendar,
@@ -74,6 +75,33 @@ export const themeConfig = {
       name: "生日",
       value: "04-21",
       icon: <Calendar />,
+    },
+  ],
+  friend_link: [
+    {
+      name: "bakptr",
+      descr: "社恐但无所不知的bakaptr",
+      link: "https://pooi.me/",
+      url: "https://q.qlogo.cn/g?b=qq&nk=369060891&s=160",
+    },
+    {
+      name: "未晓",
+      descr: "一只正在学习前端的未晓",
+      link: "https://www.dawnot.online/",
+      url: "https://q.qlogo.cn/g?b=qq&nk=1537476031&s=160",
+    },
+    {
+      name: "For You",
+      descr:
+        "螃蟹在剥我的壳, 笔记本在写我,  漫天的我落在枫叶上雪花上, 而你在想我。",
+      link: "https://lackofcsy.cn/",
+      url: "http://qn.lackofcsy.cn/config/055c0cb176b1f4c0cdb91e277a8eeb05.jpg",
+    },
+    {
+      name: "Latinaxia",
+      descr: "屑劳坂的草台班子",
+      link: "https://latinaxia.github.io",
+      url: "https://q.qlogo.cn/g?b=qq&nk=3276327856&s=160",
     },
   ],
 };
