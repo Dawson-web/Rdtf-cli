@@ -1,23 +1,22 @@
 import { apiConfig } from "@/config";
 import axios from "axios";
-import { getValidToken } from "./token";
 
 export const $axios = axios.create({
   baseURL: apiConfig.baseUrl,
   timeout: 5000,
 });
 
-$axios.interceptors.request.use(
-  (config) => {
-    const url = config.url;
+// $axios.interceptors.request.use(
+//   (config) => {
+//     const url = config.url;
 
-    if (url && !apiConfig.unProtectedUrls.some((x) => url.startsWith(x))) {
-      config.headers.Authorization = getValidToken();
-    }
-    return config;
-  },
-  (error) => Promise.reject(error)
-);
+//     if (url && !apiConfig.unProtectedUrls.some((x) => url.startsWith(x))) {
+//       config.headers.Authorization = getValidToken();
+//     }
+//     return config;
+//   },
+//   (error) => Promise.reject(error)
+// );
 
 $axios.interceptors.response.use(
   (response) => {

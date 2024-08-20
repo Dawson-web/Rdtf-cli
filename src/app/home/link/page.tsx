@@ -1,11 +1,11 @@
 "use client";
 
-import ProfileCard from "@/components/client/ProfileCard";
+import LinkCard from "@/components/client/link_card";
 
 export default function page(props: any) {
   return (
     <div>
-      <ProfileCard />
+      <LinkCard />
     </div>
   );
 }

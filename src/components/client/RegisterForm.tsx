@@ -1,300 +1,107 @@
 "use client";
-import React, { useRef, useState } from "react";
-import * as Form from "@radix-ui/react-form";
-import Link from "next/link";
-import {} from "next/router";
-import { useRouter } from "next/navigation";
+import {
+  Alert,
+  Button,
+  PasswordInput,
+  PinInput,
+  TextInput,
+} from "@mantine/core";
+import { useForm } from "@mantine/form";
 
-interface RegisterForm {
-  username: string;
+import { useState } from "react";
+import Link from "next/link";
+import { AppLogo } from "./app-logo";
+import { Bell, Check } from "lucide-react";
+
+interface Fields {
   email: string;
   password: string;
-  code: string;
+  _confirmPassword: string;
+  emailCode: string;
 }
 
-export default function RegisterForm() {
-  const [registerForm, setRegisterForm] = useState<RegisterForm>({
-    username: "",
-    email: "",
-    password: "",
-    code: "",
+export default function Page() {
+  const [stage, setStage] = useState<"fill" | "verify" | "done">("fill");
+
+  const form = useForm<Fields>({
+    mode: "uncontrolled",
+    initialValues: {
+      email: "",
+      password: "",
+      _confirmPassword: "",
+      emailCode: "",
+    },
+    validate: {
+      email: (value) => (!/^\S+@\S+$/.test(value) ? "请输入正确的邮箱" : null),
+      _confirmPassword: (value, values) =>
+        value !== values.password ? "密码不一致" : null,
+    },
   });
-  const [pace, setPace] = useState(0);
-  const router = useRouter();
 
   return (
-    <div>
-      {pace === 0 ? (
-        <Form.Root
-          className="w-[360px] bg-gray-200/30 backdrop-blur p-6 rounded-md border-[2px] "
-          onSubmit={(event) => {
-            const data = Object.fromEntries(new FormData(event.currentTarget));
+    <div className=" flex flex-col items-center gap-8">
+      <div className="flex items-center gap-2">
+        <AppLogo />
+        <div className="font-comfortaa text-xl font-semibold">| 注册</div>
+      </div>
 
-            event.preventDefault();
-          }}
-        >
-          <p className="flex justify-center items-center gap-2 w-full m-auto text-center text-[20px] font-bold leading-[35px] text-white mb-4">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M17 5c0-1.7-1.3-3-3-3s-3 1.3-3 3c0 .8.3 1.5.8 2H11c-3.9 0-7 3.1-7 7c0 2.2 1.8 4 4 4" />
-              <path d="M16.8 3.9c.3-.3.6-.5 1-.7 1.5-.6 3.3.1 3.9 1.6.6 1.5-.1 3.3-1.6 3.9l1.6 2.8c.2.3.2.7.2 1-.2.8-.9 1.2-1.7 1.1 0 0-1.6-.3-2.7-.6H17c-1.7 0-3 1.3-3 3" />
-              <path d="M13.2 18a3 3 0 0 0-2.2-5" />
-              <path d="M13 22H4a2 2 0 0 1 0-4h12" />
-              <path d="M16 9h.01" />
-            </svg>
-            | 注册
-          </p>
-          <Form.Field className="grid mb-[10px]" name="username">
-            <div className="flex items-baseline justify-between">
-              <Form.Label className="text-[15px] font-medium leading-[35px] text-white flex gap-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <circle cx="12" cy="8" r="5" />
-                  <path d="M20 21a8 8 0 0 0-16 0" />
-                </svg>{" "}
-                Username
-              </Form.Label>
-              <Form.Message
-                className="text-[13px] text-white opacity-[0.8]"
-                match="valueMissing"
-              >
-                Please enter your username
-              </Form.Message>
-            </div>
-            <Form.Control asChild>
-              <input
-                className="box-border w-full bg-blackA2 shadow-blackA6 inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none  shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
-                type="username"
-                required
+      <div className="relative flex w-[30vw] max-w-[350px] flex-col items-center gap-2 overflow-hidden rounded-md border bg-white p-4 shadow-md">
+        <form className="w-full" onSubmit={form.onSubmit((v) => {})}>
+          {stage === "fill" && (
+            <div className="flex flex-col gap-2">
+              <TextInput
+                label="邮箱"
+                key={form.key("email")}
+                {...form.getInputProps("email")}
               />
-            </Form.Control>
-          </Form.Field>
-          <Form.Field className="grid mb-[10px]" name="email">
-            <div className="flex items-baseline justify-between">
-              <Form.Label className="text-[15px] font-medium leading-[35px] text-white flex gap-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <rect width="20" height="16" x="2" y="4" rx="2" />
-                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                </svg>
-                Email
-              </Form.Label>
-              <Form.Message
-                className="text-[13px] text-white opacity-[0.8]"
-                match="valueMissing"
-              >
-                Please enter your email
-              </Form.Message>
-              <Form.Message
-                className="text-[13px] text-white opacity-[0.8]"
-                match="typeMismatch"
-              >
-                Please provide a valid email
-              </Form.Message>
-            </div>
-            <Form.Control asChild>
-              <input
-                className="box-border w-full bg-blackA2 shadow-blackA6 inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none  shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
-                type="email"
-                required
+              <PasswordInput label="密码" {...form.getInputProps("password")} />
+              <PasswordInput
+                label="确认密码"
+                {...form.getInputProps("_confirmPassword")}
               />
-            </Form.Control>
-          </Form.Field>
-          <Form.Field className="grid mb-[10px]" name="password">
-            <div className="flex items-baseline justify-between">
-              <Form.Label className="text-[15px] font-medium leading-[35px] text-white flex gap-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z" />
-                  <circle cx="16.5" cy="7.5" r=".5" fill="currentColor" />
-                </svg>
-                Password
-              </Form.Label>
-              <Form.Message
-                className="text-[13px] text-white opacity-[0.8]"
-                match="valueMissing"
-              >
-                Please enter your password
-              </Form.Message>
-            </div>
-            <Form.Control asChild>
-              <input
-                className="box-border w-full bg-blackA2 shadow-blackA6 inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none  shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
-                type="password"
-                required
-              />
-            </Form.Control>
-          </Form.Field>
-          <Link href="/login" className="text-xs opacity-50 hover:opacity-75">
-            已有账号？前往登录
-          </Link>
-          <Form.Submit asChild>
-            <button className="box-border w-full text-violet11 shadow-blackA4 hover:bg-mauve3 inline-flex h-[35px] items-center justify-center rounded-[4px] bg-white px-[15px] font-medium leading-none shadow-[0_2px_10px] focus:shadow-[0_0_0_2px] focus:shadow-black focus:outline-none mt-[10px]">
-              下一步
-            </button>
-          </Form.Submit>
-        </Form.Root>
-      ) : (
-        ""
-      )}
-      {pace === 1 ? (
-        <div>
-          <Form.Root
-            className="w-[360px] bg-gray-200/30 backdrop-blur p-6 rounded-md border-[2px] "
-            onSubmit={(event) => {
-              const data = Object.fromEntries(
-                new FormData(event.currentTarget)
-              );
 
-              event.preventDefault();
-            }}
-          >
-            <p className="flex justify-center items-center gap-2 w-full m-auto text-center text-[20px] font-bold leading-[35px] text-white mb-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+              <Link
+                href="/login"
+                className="text-xs opacity-50 hover:opacity-75"
               >
-                <path d="M17 5c0-1.7-1.3-3-3-3s-3 1.3-3 3c0 .8.3 1.5.8 2H11c-3.9 0-7 3.1-7 7c0 2.2 1.8 4 4 4" />
-                <path d="M16.8 3.9c.3-.3.6-.5 1-.7 1.5-.6 3.3.1 3.9 1.6.6 1.5-.1 3.3-1.6 3.9l1.6 2.8c.2.3.2.7.2 1-.2.8-.9 1.2-1.7 1.1 0 0-1.6-.3-2.7-.6H17c-1.7 0-3 1.3-3 3" />
-                <path d="M13.2 18a3 3 0 0 0-2.2-5" />
-                <path d="M13 22H4a2 2 0 0 1 0-4h12" />
-                <path d="M16 9h.01" />
-              </svg>
-              | 注册
-            </p>
+                已有账号？前往登录
+              </Link>
 
-            <Form.Field className="grid mb-[10px]" name="code">
-              <div className="flex items-baseline justify-between">
-                <Form.Label className="text-[15px] font-medium leading-[35px] text-white flex gap-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <rect width="20" height="16" x="2" y="4" rx="2" />
-                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                  </svg>
-                  code
-                </Form.Label>
-                <Form.Message
-                  className="text-[13px] text-white opacity-[0.8]"
-                  match="valueMissing"
-                >
-                  Please enter your email code
-                </Form.Message>
-              </div>
-              <Form.Control asChild>
-                <input
-                  className="box-border w-full bg-blackA2 shadow-blackA6 inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none  shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
-                  type="code"
-                  required
-                />
-              </Form.Control>
-            </Form.Field>
-            <Link href="/login" className="text-xs opacity-50 hover:opacity-75">
-              已有账号？前往登录
-            </Link>
-            <Form.Submit asChild>
-              <button className="box-border w-full text-violet11 shadow-blackA4 hover:bg-mauve3 inline-flex h-[35px] items-center justify-center rounded-[4px] bg-white px-[15px] font-medium leading-none shadow-[0_2px_10px] focus:shadow-[0_0_0_2px] focus:shadow-black focus:outline-none mt-[10px]">
+              <Button className="mt-4" variant="light" type="submit">
                 下一步
-              </button>
-            </Form.Submit>
-          </Form.Root>
-        </div>
-      ) : (
-        ""
-      )}
-      {pace === 2 ? (
-        <div>
-          <Form.Root
-            className="w-[360px] bg-gray-200/30 backdrop-blur p-6 rounded-md border-[2px] "
-            onSubmit={(event) => {
-              router.push("/login");
-              event.preventDefault();
-            }}
-          >
-            <p className="flex justify-center items-center gap-2 w-full m-auto text-center text-[20px] font-bold leading-[35px] text-white mb-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M17 5c0-1.7-1.3-3-3-3s-3 1.3-3 3c0 .8.3 1.5.8 2H11c-3.9 0-7 3.1-7 7c0 2.2 1.8 4 4 4" />
-                <path d="M16.8 3.9c.3-.3.6-.5 1-.7 1.5-.6 3.3.1 3.9 1.6.6 1.5-.1 3.3-1.6 3.9l1.6 2.8c.2.3.2.7.2 1-.2.8-.9 1.2-1.7 1.1 0 0-1.6-.3-2.7-.6H17c-1.7 0-3 1.3-3 3" />
-                <path d="M13.2 18a3 3 0 0 0-2.2-5" />
-                <path d="M13 22H4a2 2 0 0 1 0-4h12" />
-                <path d="M16 9h.01" />
-              </svg>
-              | 注册
-            </p>
-            <div className="w-full bg-blue-300/70 p-2 text-white font-bold border-l-8 border-blue-600 ">
-              账号注册成功！
+              </Button>
             </div>
-            <Form.Submit asChild>
-              <button className="box-border w-full text-violet11 shadow-blackA4 hover:bg-mauve3 inline-flex h-[35px] items-center justify-center rounded-[4px] bg-white px-[15px] font-medium leading-none shadow-[0_2px_10px] focus:shadow-[0_0_0_2px] focus:shadow-black focus:outline-none mt-[10px]">
-                前往登录
-              </button>
-            </Form.Submit>
-          </Form.Root>
-        </div>
-      ) : (
-        ""
-      )}
+          )}
+
+          {stage === "verify" && (
+            <div className="flex flex-col">
+              <Alert color="blue" icon={<Bell />} title="需要验证">
+                验证邮件已发送至 {form.getValues().email}
+              </Alert>
+              <PinInput
+                className="my-10 justify-center"
+                length={6}
+                type="number"
+                key={form.key("emailCode")}
+                {...form.getInputProps("emailCode")}
+              />
+              <Button onClick={() => {}}>注册</Button>
+            </div>
+          )}
+        </form>
+
+        {stage === "done" && (
+          <div className="flex w-full flex-col items-center p-8">
+            <Check size={48} className="text-blue-500" />
+            <div className="mt-2 font-light">注册成功</div>
+            <Button component={Link} href="/" className="mt-8">
+              继续
+            </Button>
+          </div>
+        )}
+
+        <div className="absolute inset-x-0 top-0 h-1 bg-blue-500"></div>
+      </div>
     </div>
   );
 }
