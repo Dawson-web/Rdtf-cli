@@ -3,7 +3,7 @@
 import clsx from "clsx";
 import React from "react";
 
-export default function Avatar(props: {
+export default function UserAvatar(props: {
   url?: string;
   size: "small" | "medium" | "large";
   className?: string;

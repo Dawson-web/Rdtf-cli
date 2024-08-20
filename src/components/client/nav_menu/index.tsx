@@ -12,7 +12,7 @@ import clsx from "clsx";
 import { useState } from "react";
 import { DarkMode } from "./DarkMode";
 import { NavOpen } from "./NavOpen";
-import Avatar from "../avatar";
+import UserAvatar from "../user_avatar";
 
 interface OptionData {
   name: string;
@@ -57,7 +57,9 @@ export default function NavMenu(props: {
               }
             )}
           >
-            {avatar_show && <Avatar size="medium" className="mx-auto px-10" />}
+            {avatar_show && (
+              <UserAvatar size="medium" className="mx-auto px-10" />
+            )}
             {options.map((item: OptionData) => {
               return (
                 <NavigationMenuItem
