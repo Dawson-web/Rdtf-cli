@@ -20,7 +20,7 @@ interface OptionData {
   icon: JSX.Element;
 }
 
-export default function Menu(props: {
+export default function NavMenu(props: {
   options: OptionData[];
   darkMode: boolean;
   avatar_show?: boolean;

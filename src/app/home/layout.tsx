@@ -1,5 +1,5 @@
 "use client";
-import Menu from "../../components/client/menu";
+import NaMenu from "@/components/client/nav_menu";
 import { themeConfig } from "@/config";
 import clsx from "clsx";
 
@@ -10,7 +10,7 @@ export default function DashboardLayout({
 }) {
   return (
     <main className={clsx("flex flex-col  sm:flex-row  w-full   ")}>
-      <Menu
+      <NaMenu
         options={themeConfig.menu.options}
         darkMode={themeConfig.menu.darkMode}
         avatar_show={themeConfig.menu.avatar_show}
