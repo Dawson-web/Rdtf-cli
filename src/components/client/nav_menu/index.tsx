@@ -8,11 +8,11 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
-import clsx from "clsx";
 import { useState } from "react";
 import { DarkMode } from "./DarkMode";
 import { NavOpen } from "./NavOpen";
 import UserAvatar from "../user_avatar";
+import clsx from "clsx";
 
 interface OptionData {
   name: string;
