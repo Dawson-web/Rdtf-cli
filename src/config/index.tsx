@@ -27,14 +27,14 @@ export const themeConfig = {
   menu: {
     options: [
       {
+        name: "主页",
+        herf: "/home",
+        icon: <Home />,
+      },
+      {
         name: "用户",
         herf: "/home/me",
         icon: <User />,
-      },
-      {
-        name: "主页",
-        herf: "/home/me",
-        icon: <Home />,
       },
       {
         name: "友链",
@@ -104,4 +104,37 @@ export const themeConfig = {
       url: "https://q.qlogo.cn/g?b=qq&nk=3276327856&s=160",
     },
   ],
+};
+
+export const formConfig = {
+  maintenanceForm: {
+    title: "表单",
+    fields: [
+      {
+        key: "email",
+        label: "邮箱",
+        type: "text",
+      },
+      {
+        key: "password",
+        label: "密码",
+        type: "password",
+      },
+      {
+        key: "img",
+        label: "身份证照片",
+        type: "file",
+      },
+      {
+        key: "age",
+        label: "年龄",
+        type: "number",
+      },
+      {
+        key: "termsOfService",
+        label: "I agree to sell my privacy",
+        type: "checkbox",
+      },
+    ],
+  },
 };

@@ -60,11 +60,11 @@ export default function NavMenu(props: {
             {avatar_show && (
               <UserAvatar size="medium" className="mx-auto px-10" />
             )}
-            {options.map((item: OptionData) => {
+            {options.map((item: OptionData, index) => {
               return (
                 <NavigationMenuItem
                   onClick={() => menuOption(item.name)}
-                  key={item.name}
+                  key={index}
                 >
                   <Link href={item.herf} legacyBehavior passHref>
                     <NavigationMenuLink

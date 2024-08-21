@@ -1,5 +1,5 @@
 "use client";
-import SeekBackForm from "@/components/client/SeekBackForm";
+import SeekBackForm from "@/components/client/form/SeekBackForm";
 
 export default function Home() {
   return (

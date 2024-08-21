@@ -2,7 +2,7 @@ import { Button, Group, PasswordInput, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import Link from "next/link";
 import { useRef } from "react";
-import { AppLogo } from "./app-logo";
+import { AppLogo } from "../app-logo";
 
 interface Fiedls {
   email: string;

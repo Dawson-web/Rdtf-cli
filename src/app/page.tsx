@@ -11,6 +11,7 @@ export default function page() {
         <ul className="text-sm mt-[10px] sm:text-lg font-medium text-gray-500">
           <li>— 快速构建</li>
           <li>— 功能丰富</li>
+          <li>— 双端适配</li>
           <li>— 高度自定义</li>
           <li>— 高度适配的深色模式</li>
         </ul>
