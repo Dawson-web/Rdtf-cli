@@ -3,7 +3,7 @@ import useMeasure from "react-use-measure";
 import { useSpring, animated } from "@react-spring/web";
 
 const Loading = () => {
-  const [ref, { width }] = useMeasure();
+  const [ref] = useMeasure();
   const [progress, setProgress] = useState(0);
   const [totalResources, setTotalResources] = useState(0);
   const [loadedResources, setLoadedResources] = useState(0);
@@ -36,7 +36,7 @@ const Loading = () => {
 
     updateProgress();
 
-    const observer = new PerformanceObserver((list, observer) => {
+    const observer = new PerformanceObserver((list) => {
       for (const entry of list.getEntries() as PerformanceResourceTiming[]) {
         if (entry.name && entry.responseEnd > 0) {
           setLoadedResources((prev) => prev + 1);
@@ -65,7 +65,11 @@ const Loading = () => {
             style={{ width: props.progress.interpolate((p) => `${p}%`) }}
           />
           <animated.div className="absolute w-full h-full flex items-center justify-center text-white ">
-            {props.progress.to((p) => p.toFixed(0))}
+            {props.progress.to(
+              (p) =>
+                p.toFixed(loadedResources ? (p / totalResources) * 100 : 0) +
+                "%"
+            )}
           </animated.div>
         </div>
       </div>

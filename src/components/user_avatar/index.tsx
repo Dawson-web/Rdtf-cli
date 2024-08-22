@@ -1,7 +1,6 @@
 "use client";
 
 import clsx from "clsx";
-import React from "react";
 
 export default function UserAvatar(props: {
   url?: string;
