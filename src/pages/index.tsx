@@ -6,7 +6,7 @@ export default function Page() {
       <div className="flex flex-col items-center justify-center h-screen">
         <div className="text-2xl sm:text-4xl font-bold flex gap-2 flex-col p-8 bg-gray-100 rounded-md ">
           <h1 className="text-blue-500 ">Rdtf.</h1>
-          <h1>基于Next.js的快速开发模板</h1>
+          <h1>基于Vite的快速开发模板</h1>
           <h1>旨在低代码实现网页构建</h1>
           <ul className="text-sm mt-[10px] sm:text-lg font-medium text-gray-500">
             <li>— 快速构建</li>
