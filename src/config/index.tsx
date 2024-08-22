@@ -1,7 +1,4 @@
-"use client";
-import { url } from "inspector";
 import {
-  AlarmClock,
   Calendar,
   Home,
   Link,
@@ -28,17 +25,17 @@ export const themeConfig = {
     options: [
       {
         name: "主页",
-        herf: "/home",
+        herf: "/rdtf",
         icon: <Home />,
       },
       {
         name: "用户",
-        herf: "/home/me",
+        herf: "/rdtf/me",
         icon: <User />,
       },
       {
         name: "友链",
-        herf: "/home/link",
+        herf: "/rdtf/link",
         icon: <Link />,
       },
     ], // 菜单配置
