@@ -1,50 +1,55 @@
-# React + TypeScript + Vite
+## 项目介绍
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Rdtf是一个基于Vite构建的快速开发模板，它提供了一些常用的功能、组件、配置、工具等，可以帮助我们快速搭建一个React项目。
 
-Currently, two official plugins are available:
+Rdtf主要采用Mantine组件以及Tailwind CSS进行样式开发，同时使用TypeScript进行类型检查，保证代码的健壮性。
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+当然Rdtf也提供了axios和react-query进行数据请求和状态管理，同时使用react-router-dom进行路由管理，方便我们实现页面跳转、参数传递等功能。
 
-## Expanding the ESLint configuration
+## 项目结构
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Rdtf的大概项目结构如下：
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
 ```
+src
+├── pages
+├── components
+├── config
+│   ├── index.tsx
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
 ```
+在整个src下，我们主要分为pages、components、config三个文件夹，其中pages文件夹用于存放页面文件，components文件夹用于存放组件文件，config
+
+文件夹用于存放配置文件。
+
+所有的默认模板配置都存放于config中，包括但不限于菜单栏设置、暗夜模式设置、友链设置、个人信息设置、主题设置等。
+
+所有的自定义组件全部存放于components下的client中，包括但不限于头像、Logo、友链卡片、菜单栏、个人信息卡片......
+
+注意！此模板默认提供了基于Mantine的Form实现的登录、注册、找回表单存放于components下的client中如有自定义需求可自行修改
+
+## 项目特点
+
+### 快速构建
+
+快速构建是Rdtf的初衷，且会为此为目标不断完善，希望能尽可能的优化构建体验
+
+### 低代码量
+
+将大量的重复代码封装成组件，只需在配置中自行编写组件的一些参数,即可满足你的需求
+
+### 丰富的组件
+
+Rdtf提供了丰富的组件，大家可以自行选取使用，构建自己的网站
+
+### 高度自定义
+
+大家可以根据自身需求，对Rdtf的组件、样式、布局等进行自定义修改，打造出属于自己特色的网站
+
+### 暗夜模式
+
+Rdtf默认提供了暗夜模式，可以通过点击菜单栏的图标来切换暗夜模式
+
+### 响应式设计
+
+只提供Pc端布局显然不是我们的初衷，所以对默认布局我们提供了响应式设计，且在各种尺寸下都能有较好的开发体验
