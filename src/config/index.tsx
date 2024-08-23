@@ -1,4 +1,5 @@
 import {
+  Album,
   Calendar,
   Home,
   Link,
@@ -21,6 +22,10 @@ export const apiConfig = {
 };
 
 export const themeConfig = {
+  site: {
+    name: "RDTF",
+    descr: "一个基于Vite+React+TS的快速模板框架",
+  },
   menu: {
     options: [
       {
@@ -29,9 +34,9 @@ export const themeConfig = {
         icon: <Home />,
       },
       {
-        name: "用户",
-        herf: "/rdtf/me",
-        icon: <User />,
+        name: "组件",
+        herf: "/rdtf/components",
+        icon: <Album />,
       },
       {
         name: "友链",

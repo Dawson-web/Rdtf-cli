@@ -26,7 +26,7 @@ export default function NavMenu(props: {
   className?: string;
 }) {
   const [open, setOpen] = useState<boolean>(false);
-  const [option, setOption] = useState<string>("");
+  const [option, setOption] = useState<string>("主页");
   const { options, darkMode, avatar_show } = props;
 
   function menuOption(options: string) {

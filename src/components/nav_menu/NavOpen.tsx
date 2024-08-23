@@ -10,6 +10,13 @@ interface Fiedls {
 
 export const NavOpen = (props: Fiedls) => {
   const { open, setOpen } = props; // Assuming the component prop is a string that represents the component to render
+  const mediaQuery = window.matchMedia("(min-width: 640px)");
+  window.addEventListener("resize", () => {
+    if (mediaQuery.matches) {
+      setOpen(false);
+    }
+  });
+
   return (
     <div id="nav" className=" bg-white dark:bg-gray-900 sm:hidden h-[40px]">
       <div

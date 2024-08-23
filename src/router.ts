@@ -7,8 +7,8 @@ export type Path =
   | `/`
   | `/login`
   | `/rdtf`
+  | `/rdtf/components`
   | `/rdtf/link`
-  | `/rdtf/me`
   | `/register`
   | `/seekback`
 

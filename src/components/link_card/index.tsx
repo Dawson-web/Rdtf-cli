@@ -1,5 +1,3 @@
-"use client";
-
 import clsx from "clsx";
 import React from "react";
 
@@ -26,7 +24,7 @@ export default function LinkCard(props: any) {
         rel="noopener noreferrer"
         className="flex  items-center justify-around"
       >
-        <div
+        <aside
           className={clsx("w-[90px] h-[90px]  relative ", {
             "animate-bounce 	": isHovered,
           })}
@@ -37,13 +35,11 @@ export default function LinkCard(props: any) {
             className="rounded-full"
           />
           <div className="bg-green-500 border-white border-4 rounded-full w-[20px] h-[20px] absolute bottom-[0px] right-[0px]"></div>
-        </div>
-        <div className="w-[70%] text-center text-gray-600 font-medium p-2 flex flex-col items-start">
-          <span className="text-lg font-bold">
-            {name || "这个人很懒未留名"}
-          </span>
+        </aside>
+        <main className="w-[70%] text-center text-gray-600 font-medium p-2 flex flex-col items-start">
+          <div className="text-lg font-bold">{name || "这个人很懒未留名"}</div>
           <div className="text-sm">{descr || "这个人很懒未留简介"}</div>
-        </div>
+        </main>
       </a>
     </div>
   );
