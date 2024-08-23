@@ -65,7 +65,7 @@ export default function RenderComponents() {
           </li>
         </ul>
       </div>
-      <div className="mt-[20px] w-[50vw]   min-w-[320px] h-full flex flex-col items-center justify-center bg-gray-300 rounded-md p-2">
+      <div className="mt-[20px]    h-full flex flex-col items-center justify-center rounded-md p-2">
         {component === "form" && (
           <Form form_config={formConfig.maintenanceForm} form={form} fn={fn} />
         )}
