@@ -1,23 +1,10 @@
 import clsx from "clsx";
-import React from "react";
 
 export default function ImgCard(props: any) {
   const { title, url, descr } = props;
-  const [isHovered, setIsHovered] = React.useState(false);
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
 
   return (
-    <div
-      className="w-[350px]   rounded-lg shadow-md  bg-white dark:bg-gray-900  hover:scale-[1.02] hover:shadow-sm transition-all duration-300 ease-in-out box-content "
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
+    <div className="w-[350px]   rounded-lg shadow-md  bg-white dark:bg-gray-900  hover:scale-[1.02] hover:shadow-sm transition-all duration-300 ease-in-out box-content ">
       <header>
         <img
           src={
