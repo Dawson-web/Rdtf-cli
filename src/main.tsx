@@ -2,6 +2,8 @@ import { Routes } from "@generouted/react-router/lazy";
 import "@mantine/notifications/styles.css";
 import "@mantine/core/styles.css";
 import "./index.css";
+import "./styles/editor.scss";
+
 import { MantineProvider } from "@mantine/core";
 import { Notifications } from "@mantine/notifications";
 import React from "react";

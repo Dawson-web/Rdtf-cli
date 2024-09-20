@@ -1,3 +1,9 @@
+import IeseEditor from "../../components/editor";
+
 export default function Page() {
-  return <div>主页</div>;
+  return (
+    <div className="w-full">
+      <IeseEditor />
+    </div>
+  );
 }

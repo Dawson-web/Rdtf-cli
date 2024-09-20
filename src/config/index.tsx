@@ -11,13 +11,12 @@ import {
 } from "lucide-react";
 
 export const apiConfig = {
-  baseUrl: "http://47.109.106.254:8080",
+  baseUrl: "http://127.0.0.1:3000",
   unProtectedUrls: [
-    "/user/verifyCode",
-    "/user/token",
-    "/user/register",
-    "/user/forgetPassword",
-    "/user/avatar",
+    "/user/email",
+    "/user/captcha",
+    "/user/signup",
+    "/user/login",
   ],
 };
 

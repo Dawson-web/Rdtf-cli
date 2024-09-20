@@ -1,8 +1,9 @@
 import { Button, Group, PasswordInput, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { AppLogo } from "../../../components/app-logo";
 import { Link } from "react-router-dom";
+import { $axios } from "../../../api";
 
 interface Fiedls {
   email: string;
@@ -21,6 +22,9 @@ export default function Page() {
     validate: {
       email: (value) => (/^\S+@\S+$/.test(value) ? null : "请输入正确的邮箱"),
     },
+  });
+  useEffect(() => {
+    $axios.get("/user/captcha");
   });
 
   return (
