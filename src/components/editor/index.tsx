@@ -25,7 +25,7 @@ const IeseEditor = () => {
   return (
     <div>
       <MenuBar editor={editor} />
-      <Card className="rounded-lg p-2">
+      <Card className="rounded-lg p-2 mt-2">
         <EditorContent editor={editor} />
       </Card>
     </div>
