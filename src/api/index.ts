@@ -21,13 +21,14 @@ $axios.interceptors.request.use(
 
 $axios.interceptors.response.use(
   (response) => {
+    console.log(response);
     const code = response.status; // 注意这里使用 response.status 获取 HTTP 状态码
     switch (true) {
       case code >= 200 && code < 300: {
-        if (response.data.code != 200 || response.data.msg != "ok") {
-          return Promise.reject(new Error(`${response.data.msg}`));
+        if (!response.data.status) {
+          return Promise.reject(new Error(`${response.data.message}`));
         }
-        return response;
+        return response.data;
       }
       case code === 400: // Bad Request
         return Promise.reject(new Error(`请求错误: ${code}`));

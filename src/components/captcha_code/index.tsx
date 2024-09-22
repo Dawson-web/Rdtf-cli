@@ -1,18 +1,27 @@
 import { TextInput } from "@mantine/core";
 import { getCaptcha } from "../../service";
-import { useState, useEffect } from "react";
+import { useState, useEffect, FC } from "react";
 import { Tooltip } from "@mantine/core";
 
-export function CaptchaCode() {
+interface CaptchaCodeProps {
+  getCaptchaCode: (code: string) => void;
+}
+
+const CaptchaCode: FC<CaptchaCodeProps> = ({ getCaptchaCode }) => {
   const [captcha, setCaptcha] = useState<string>("");
-  const [code, setCode] = useState<string>("");
 
   useEffect(() => {
     setCaptcha(getCaptcha());
   }, []);
+
   return (
-    <div className="flex  gap-2 items-end">
-      <TextInput label="验证码" onChange={(e) => setCode(e.target.value)} />
+    <div className="flex gap-2 items-end">
+      <TextInput
+        label="验证码"
+        onChange={(e) => {
+          getCaptchaCode(e.target.value);
+        }}
+      />
       <Tooltip label="点击更换" position="bottom" withArrow>
         <img
           src={captcha}
@@ -20,8 +29,10 @@ export function CaptchaCode() {
           onClick={() => {
             setCaptcha(getCaptcha());
           }}
-        ></img>
+        />
       </Tooltip>
     </div>
   );
-}
+};
+
+export default CaptchaCode;
