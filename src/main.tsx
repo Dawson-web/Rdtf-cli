@@ -5,14 +5,14 @@ import "./index.css";
 import "./styles/editor.scss";
 
 import { MantineProvider } from "@mantine/core";
-import { Notifications } from "@mantine/notifications";
+import { Toaster } from "sonner";
 import React from "react";
 import ReactDOM from "react-dom/client";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <MantineProvider>
-      <Notifications position="top-center" />
+      <Toaster />
       <Routes />
     </MantineProvider>
   </React.StrictMode>

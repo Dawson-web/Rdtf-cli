@@ -12,12 +12,7 @@ import {
 
 export const apiConfig = {
   baseUrl: "http://127.0.0.1:3000",
-  unProtectedUrls: [
-    "/user/email",
-    "/user/captcha",
-    "/user/signup",
-    "/user/login",
-  ],
+  unProtectedUrls: ["/login", "/captcha", "/signup", "/email", "/seekback"],
 };
 
 export const themeConfig = {

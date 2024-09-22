@@ -1,9 +1,9 @@
 import { Button, Group, PasswordInput, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { AppLogo } from "../../../components/app-logo";
 import { Link } from "react-router-dom";
-import { $axios } from "../../../api";
+import { CaptchaCode } from "../../../components/captcha_code";
 
 interface Fiedls {
   email: string;
@@ -23,10 +23,6 @@ export default function Page() {
       email: (value) => (/^\S+@\S+$/.test(value) ? null : "请输入正确的邮箱"),
     },
   });
-  useEffect(() => {
-    $axios.get("/user/captcha");
-  });
-
   return (
     <div className=" flex flex-col items-center gap-8">
       <div className="flex items-center gap-2">
@@ -49,7 +45,7 @@ export default function Page() {
           key={form.key("password")}
           {...form.getInputProps("password")}
         />
-
+        <CaptchaCode />
         {errorTimes.current >= 2 ? (
           <Link to="/seekback" className="text-xs opacity-50 hover:opacity-75">
             忘记密码？前往找回
