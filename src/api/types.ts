@@ -1,15 +1,15 @@
 export interface ApiError {
   data: null
-  total: null
-  errorMsg: string
-  success: false
+  total?: null
+  message: string
+  status: boolean
 }
 
 export interface ApiOk<Data> {
   data: Data
-  total: number | null
-  errorMsg: null
-  success: true
+  total?: number | null
+  message: null
+  status: boolean
 }
 
 export type Api<Data> = ApiOk<Data> | ApiError

@@ -5,10 +5,10 @@ import { components, hooks, utils } from '@generouted/react-router/client'
 
 export type Path =
   | `/`
+  | `/home`
+  | `/home/components`
+  | `/home/link`
   | `/login`
-  | `/rdtf`
-  | `/rdtf/components`
-  | `/rdtf/link`
   | `/register`
   | `/seekback`
 

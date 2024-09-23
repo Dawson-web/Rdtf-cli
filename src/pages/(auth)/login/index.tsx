@@ -37,9 +37,9 @@ export default function Page() {
         onSubmit={form.onSubmit(async (v) => {
           try {
             const res = await login(v, code.current);
-            setToken(res.data.token);
+            setToken(res.data.data);
           } catch (error) {
-            toast.error(error + "");
+            toast.error(error as string);
           }
         })}
         className="relative flex w-[30vw] min-w-[320px] max-w-[400px]  flex-col gap-2 overflow-hidden rounded-md border bg-white p-4 shadow-md"

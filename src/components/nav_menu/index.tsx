@@ -11,13 +11,14 @@ import { DarkMode } from "./DarkMode";
 import { NavOpen } from "./NavOpen";
 import UserAvatar from "../user_avatar";
 import clsx from "clsx";
-import { Link } from "react-router-dom";
+import { Link, useFormAction } from "react-router-dom";
 
 interface OptionData {
   name: string;
   herf: string;
   icon: JSX.Element;
 }
+
 
 export default function NavMenu(props: {
   options: OptionData[];
@@ -28,6 +29,9 @@ export default function NavMenu(props: {
   const [open, setOpen] = useState<boolean>(false);
   const [option, setOption] = useState<string>("主页");
   const { options, darkMode, avatar_show } = props;
+
+  // const {formData,setUserFormData} =   useFormContext()
+
 
   function menuOption(options: string) {
     setOption(options);

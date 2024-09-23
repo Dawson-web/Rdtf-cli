@@ -12,7 +12,8 @@ $axios.interceptors.request.use(
     const url = config.url;
 
     if (url && !apiConfig.unProtectedUrls.some((x) => url.startsWith(x))) {
-      config.headers.Authorization = getValidToken();
+      config.headers.token = getValidToken();
+      console.log(config.headers);
     }
     return config;
   },
@@ -28,7 +29,7 @@ $axios.interceptors.response.use(
         if (!response.data.status) {
           return Promise.reject(new Error(`${response.data.message}`));
         }
-        return response.data;
+        return response;
       }
       case code === 400: // Bad Request
         return Promise.reject(new Error(`请求错误: ${code}`));

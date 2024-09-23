@@ -1,4 +1,5 @@
 import { $axios } from "../api";
+import { ApiOk } from "../api/types";
 import { apiConfig } from "../config";
 import { ILoginFileds } from "../types";
 
@@ -7,7 +8,7 @@ export const getCaptcha = () => {
 };
 
 export const login = async (form: ILoginFileds, code: string) => {
-  return await $axios.post("/login", {
+  return await $axios.post<ApiOk<string>>("/login", {
     email: form.email,
     password: form.password,
   });

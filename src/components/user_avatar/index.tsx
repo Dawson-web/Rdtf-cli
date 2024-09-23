@@ -1,25 +1,26 @@
 "use client";
 
 import clsx from "clsx";
+import { apiConfig } from "../../config";
 
 export default function UserAvatar(props: {
-  url?: string;
+  src?: string;
   size: "small" | "medium" | "large";
   className?: string;
 }) {
-  const { url, size, className } = props;
-
+  const { src, size, className } = props;
+  
   return (
     <div className={className}>
       <div
-        className={clsx("relative w-[60px] h-[60px]", {
+        className={clsx("relative w-[60px] h-[60px] ", {
           "w-[40px] h-[40px]": size === "small",
           "w-[60px] h-[60px]": size === "medium",
           "w-[80px] h-[80px]": size === "large",
         })}
       >
         <img
-          src={url || "https://www.betula.space/images/avatar.png"}
+          src={apiConfig.baseUrl+src || "https://www.betula.space/images/avatar.png"}
           alt="avatar"
           className="rounded-full  "
         />

@@ -24,17 +24,17 @@ export const themeConfig = {
     options: [
       {
         name: "主页",
-        herf: "/rdtf",
+        herf: "/home",
         icon: <Home />,
       },
       {
         name: "组件",
-        herf: "/rdtf/components",
+        herf: "/home/components",
         icon: <Album />,
       },
       {
         name: "友链",
-        herf: "/rdtf/link",
+        herf: "/home/link",
         icon: <Link />,
       },
     ], // 菜单配置

@@ -36,7 +36,7 @@ export default function Page() {
               找回
             </Link>
             <Link
-              to={"/rdtf"}
+              to={"/home"}
               className="px-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
             >
               首页
