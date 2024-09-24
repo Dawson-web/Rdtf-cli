@@ -46,6 +46,7 @@ export default function Page() {
       >
         <TextInput
           label="邮箱"
+          id="email"
           key={form.key("email")}
           {...form.getInputProps("email")}
         />

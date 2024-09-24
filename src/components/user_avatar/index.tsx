@@ -2,13 +2,15 @@
 
 import clsx from "clsx";
 import { apiConfig } from "../../config";
+import { FC } from "react";
 
-export default function UserAvatar(props: {
+interface Props {
   src?: string;
   size: "small" | "medium" | "large";
   className?: string;
-}) {
-  const { src, size, className } = props;
+}
+
+ const UserAvatar:FC<Props> = ({ src, size, className }) =>{
   
   return (
     <div className={className}>
@@ -36,3 +38,5 @@ export default function UserAvatar(props: {
     </div>
   );
 }
+
+export default UserAvatar

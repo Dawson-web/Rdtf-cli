@@ -16,6 +16,6 @@ export interface IUserFormData {
 }
 
 export interface IFormContext {
-    formData: IUserFormData;
+    userFormData: IUserFormData;
     updateFormData: (key: string, data: unknown) => void;
   }

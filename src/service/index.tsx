@@ -8,6 +8,7 @@ export const getCaptcha = () => {
 };
 
 export const login = async (form: ILoginFileds, code: string) => {
+  console.log('Captcha验证码：', code);
   return await $axios.post<ApiOk<string>>("/login", {
     email: form.email,
     password: form.password,

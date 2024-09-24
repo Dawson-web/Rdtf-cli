@@ -2,12 +2,11 @@ import clsx from "clsx";
 import NavMenu from "../../components/nav_menu";
 import { themeConfig } from "../../config";
 import { Outlet } from "react-router-dom";
-import { IUserFormData ,IFormContext} from "../../types/home";
+import { IUserFormData } from "../../types/home";
 import { getUserInfo } from "../../service/home";
-import { createContext,useContext,useState,useEffect } from "react";
+import {useState,useEffect } from "react";
 
-const FormContext = createContext(null as unknown as IFormContext);
-export const useFormContext = () => useContext(FormContext);
+
 export default function Layout() {
   const [userFormData, setUserFormData] = useState<IUserFormData>({
     id: "",
@@ -22,26 +21,20 @@ export default function Layout() {
         email: ""
     }
 })
-  const updateFormData = (key: string, data: unknown) => {
-    setUserFormData({
-      ...userFormData,
-      [key]: data,
-    });
-  };
+
   useEffect(() => {
     getUserInfo().then((res) => {
       setUserFormData(res.data.data)
-      console.log(res.data.data)
     })
   },[])
   return (
-    <FormContext.Provider value={{formData:userFormData,updateFormData}}>
 
     <div className={clsx("flex flex-col  sm:flex-row  w-full   ")}>
       <NavMenu
         options={themeConfig.menu.options}
         darkMode={themeConfig.menu.darkMode}
         avatar_show={themeConfig.menu.avatar_show}
+        avatar_src={userFormData.avatar}
       />
       <main
         className={clsx(
@@ -51,7 +44,6 @@ export default function Layout() {
         <Outlet />
       </main>
     </div>
-    </FormContext.Provider>
 
   );
 }

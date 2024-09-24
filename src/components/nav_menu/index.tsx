@@ -6,12 +6,12 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "@radix-ui/react-navigation-menu";
-import { useState } from "react";
+import { FC, useState } from "react";
 import { DarkMode } from "./DarkMode";
 import { NavOpen } from "./NavOpen";
 import UserAvatar from "../user_avatar";
 import clsx from "clsx";
-import { Link, useFormAction } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 interface OptionData {
   name: string;
@@ -19,18 +19,24 @@ interface OptionData {
   icon: JSX.Element;
 }
 
+interface Props 
+  {
+    options: OptionData[];
+    darkMode: boolean;
+    avatar_show?: boolean;
+    className?: string;
+    avatar_src?: string;
+  }
 
-export default function NavMenu(props: {
-  options: OptionData[];
-  darkMode: boolean;
-  avatar_show?: boolean;
-  className?: string;
-}) {
+ const NavMenu:FC<Props>=({
+  options,
+  darkMode,
+  avatar_show,
+  className,
+  avatar_src
+})=> {
   const [open, setOpen] = useState<boolean>(false);
   const [option, setOption] = useState<string>("主页");
-  const { options, darkMode, avatar_show } = props;
-
-  // const {formData,setUserFormData} =   useFormContext()
 
 
   function menuOption(options: string) {
@@ -38,7 +44,7 @@ export default function NavMenu(props: {
     setTimeout(() => setOpen(false), 400);
   }
   return (
-    <div>
+    <div className={className}>
       {/* 移动端控制菜单打开按钮 */}
       <NavOpen open={open} setOpen={setOpen} />
 
@@ -61,7 +67,7 @@ export default function NavMenu(props: {
             )}
           >
             {avatar_show && (
-              <UserAvatar size="medium" className="mx-auto px-10" />
+              <UserAvatar src={avatar_src} size="medium" className="mx-auto px-10" />
             )}
             {options.map((item: OptionData, index) => {
               return (
@@ -95,3 +101,5 @@ export default function NavMenu(props: {
     </div>
   );
 }
+
+export default NavMenu;
