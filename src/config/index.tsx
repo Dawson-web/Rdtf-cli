@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 
 export const apiConfig = {
-  baseUrl: "http://127.0.0.1:3000",
+  baseUrl: "https://47.93.254.190:3000",
   unProtectedUrls: ["/login", "/captcha", "/signup", "/email", "/seekback"],
 };
 
