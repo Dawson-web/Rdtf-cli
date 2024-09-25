@@ -5,7 +5,7 @@ export const getCookie = (name: string): string | undefined => {
     if (key === name) {
       return decodeURIComponent(value);
     }
-    console.log(key, value);
+    console.log(999,key, value);
   }
   return undefined;
 };

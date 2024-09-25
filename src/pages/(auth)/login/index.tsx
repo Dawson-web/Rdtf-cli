@@ -2,7 +2,7 @@ import { Button, Group, PasswordInput, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { useRef } from "react";
 import { AppLogo } from "../../../components/app-logo";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CaptchaCode from "../../../components/captcha_code";
 import { ILoginFileds } from "../../../types";
 import { login } from "../../../service";
@@ -11,12 +11,12 @@ import { setToken } from "../../../api/token";
 
 export default function Page() {
   const errorTimes = useRef(0);
+  const navigate = useNavigate()
 
   const code = useRef("");
   const getCaptchaCode = (value: string) => {
     code.current = value;
   };
-
   const form = useForm<ILoginFileds>({
     mode: "uncontrolled",
     initialValues: {
@@ -36,8 +36,11 @@ export default function Page() {
       <form
         onSubmit={form.onSubmit(async (v) => {
           try {
-            const res = await login(v, code.current);
-            setToken(res.data.data);
+           await login(v, code.current).then((res) => {
+              setToken(res.data.data);
+              navigate("/home")
+            })
+            ;
           } catch (error) {
             toast.error(error as string);
           }
@@ -52,6 +55,7 @@ export default function Page() {
         />
         <PasswordInput
           label="密码"
+          id="password"
           key={form.key("password")}
           {...form.getInputProps("password")}
         />
