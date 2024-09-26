@@ -13,7 +13,6 @@ $axios.interceptors.request.use(
 
     if (url && !apiConfig.unProtectedUrls.some((x) => url.startsWith(x))) {
       config.headers.token = getValidToken();
-      console.log(config.headers);
     }
     return config;
   },
@@ -22,7 +21,6 @@ $axios.interceptors.request.use(
 
 $axios.interceptors.response.use(
   (response) => {
-    console.log(response);
     const code = response.status; // 注意这里使用 response.status 获取 HTTP 状态码
     switch (true) {
       case code >= 200 && code < 300: {

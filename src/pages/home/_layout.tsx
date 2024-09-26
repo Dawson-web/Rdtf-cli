@@ -1,34 +1,29 @@
 import clsx from "clsx";
 import NavMenu from "../../components/nav_menu";
 import { themeConfig } from "../../config";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { IUserFormData } from "../../types/home";
 import { getUserInfo } from "../../service/home";
-import {useState,useEffect } from "react";
-
+import { useState, useEffect } from "react";
+import Loading from "../../components/loading";
 
 export default function Layout() {
-  const [userFormData, setUserFormData] = useState<IUserFormData>({
-    id: "",
-    introduce: "",
-    role: 0,
-    username: "",
-    avatar: "",
-    school: "",
-    createdAt: "",
-    updatedAt: "",
-    User: {
-        email: ""
-    }
-})
+  const navigate = useNavigate();
+  const [userFormData, setUserFormData] = useState<IUserFormData>(
+    null as unknown as IUserFormData
+  );
 
   useEffect(() => {
-    getUserInfo().then((res) => {
-      setUserFormData(res.data.data)
-    })
-  },[])
+    getUserInfo()
+      .then((res) => {
+        setUserFormData(res.data.data);
+      })
+      .catch(() => {
+        navigate("/login");
+      });
+  }, []);
+  if (!userFormData) return <Loading />;
   return (
-
     <div className={clsx("flex flex-col  sm:flex-row  w-full   ")}>
       <NavMenu
         options={themeConfig.menu.options}
@@ -44,6 +39,5 @@ export default function Layout() {
         <Outlet />
       </main>
     </div>
-
   );
 }

@@ -2,7 +2,6 @@
 
 export function setToken(token: string) {
   localStorage.setItem("token", token);
-  console.log("Token set to localStorage",token);
 }
 
 export function getValidToken() {

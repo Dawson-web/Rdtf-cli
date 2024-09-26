@@ -4,6 +4,7 @@ import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import MenuBar from "./MenuBar";
 import { Card } from "@mantine/core";
+import "../../styles/editor.css";
 
 const IeseEditor = () => {
   const editor = useEditor({

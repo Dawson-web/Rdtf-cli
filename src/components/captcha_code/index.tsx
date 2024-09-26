@@ -17,7 +17,7 @@ const CaptchaCode: FC<CaptchaCodeProps> = ({ getCaptchaCode }) => {
   return (
     <div className="flex gap-2 items-end">
       <TextInput
-        label="验证码"
+        label="验证码(当前还未开启，可跳过)"
         className="flex-1"
         onChange={(e) => {
           getCaptchaCode(e.target.value);

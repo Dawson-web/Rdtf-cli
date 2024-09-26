@@ -11,7 +11,7 @@ import { setToken } from "../../../api/token";
 
 export default function Page() {
   const errorTimes = useRef(0);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const code = useRef("");
   const getCaptchaCode = (value: string) => {
@@ -36,11 +36,11 @@ export default function Page() {
       <form
         onSubmit={form.onSubmit(async (v) => {
           try {
-           await login(v, code.current).then((res) => {
+            await login(v, code.current).then((res) => {
               setToken(res.data.data);
-              navigate("/home")
-            })
-            ;
+            });
+            navigate("/home");
+            toast.success("登录成功");
           } catch (error) {
             toast.error(error as string);
           }

@@ -12,18 +12,14 @@ import { useState } from "react";
 import { AppLogo } from "../../../components/app-logo";
 import { Bell, Check } from "lucide-react";
 import { Link } from "react-router-dom";
-
-interface Fields {
-  email: string;
-  password: string;
-  _confirmPassword: string;
-  emailCode: string;
-}
+import { register, sendEmailCode } from "../../../service";
+import { toast } from "sonner";
+import { IRegisterFileds } from "../../../types";
 
 export default function Page() {
   const [stage, setStage] = useState<"fill" | "verify" | "done">("fill");
 
-  const form = useForm<Fields>({
+  const form = useForm<IRegisterFileds>({
     mode: "uncontrolled",
     initialValues: {
       email: "",
@@ -48,14 +44,15 @@ export default function Page() {
       <div className="relative flex w-[30vw] min-w-[320px] max-w-[400px]  flex-col items-center gap-2 overflow-hidden rounded-md border bg-white p-4 shadow-md">
         <form
           className="w-full"
-          onSubmit={form.onSubmit((v) => {
+          onSubmit={form.onSubmit(async (v) => {
+            await sendEmailCode(v.email);
             setStage("verify");
-            console.log(v);
           })}
         >
           {stage === "fill" && (
             <div className="flex flex-col gap-2">
               <TextInput
+                id="email"
                 label="邮箱"
                 key={form.key("email")}
                 {...form.getInputProps("email")}
@@ -83,12 +80,24 @@ export default function Page() {
               </Alert>
               <PinInput
                 className="my-10 justify-center"
-                length={6}
-                type="number"
+                length={7}
                 key={form.key("emailCode")}
                 {...form.getInputProps("emailCode")}
               />
-              <Button onClick={() => {}}>注册</Button>
+              <Button
+                onClick={async () => {
+                  try {
+                    await register(form.getValues()).then(() => {
+                      setStage("done");
+                    });
+                  } catch (error) {
+                    toast(String(error));
+                  }
+                }}
+                className="mt-4"
+              >
+                注册
+              </Button>
             </div>
           )}
         </form>
@@ -97,7 +106,7 @@ export default function Page() {
           <div className="flex w-full flex-col items-center p-8">
             <Check size={48} className="text-blue-500" />
             <div className="mt-2 font-light">注册成功</div>
-            <Button component={Link} to="/" className="mt-8">
+            <Button component={Link} to="/login" className="mt-8">
               继续
             </Button>
           </div>

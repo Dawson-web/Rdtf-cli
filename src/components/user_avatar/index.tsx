@@ -3,6 +3,8 @@
 import clsx from "clsx";
 import { apiConfig } from "../../config";
 import { FC } from "react";
+import { uploadAvatar } from "../../service/home";
+import { toast } from "sonner";
 
 interface Props {
   src?: string;
@@ -10,8 +12,25 @@ interface Props {
   className?: string;
 }
 
- const UserAvatar:FC<Props> = ({ src, size, className }) =>{
-  
+const UserAvatar: FC<Props> = ({ src, size, className }) => {
+  const avatarUpload = () => {
+    const input = document.createElement("input");
+    input.type = "file";
+    input.accept = "image/*";
+    input.click();
+    input.onchange = async (e: any) => {
+      const file = e.target.files[0];
+      const formData = new FormData();
+      formData.append("avatar", file);
+      await uploadAvatar(formData)
+        .then(() => {
+          toast.success("头像上传成功");
+        })
+        .catch((err) => {
+          toast.error(String(err));
+        });
+    };
+  };
   return (
     <div className={className}>
       <div
@@ -20,11 +39,22 @@ interface Props {
           "w-[60px] h-[60px]": size === "medium",
           "w-[80px] h-[80px]": size === "large",
         })}
+        onClick={() => {
+          console.log("click");
+          avatarUpload();
+        }}
       >
         <img
-          src={apiConfig.baseUrl+src || "https://www.betula.space/images/avatar.png"}
+          src={
+            apiConfig.baseUrl + src ||
+            "https://www.betula.space/images/avatar.png"
+          }
           alt="avatar"
-          className="rounded-full  "
+          className={clsx("relative w-[60px] h-[60px] rounded-full", {
+            "w-[40px] h-[40px]": size === "small",
+            "w-[60px] h-[60px]": size === "medium",
+            "w-[80px] h-[80px]": size === "large",
+          })}
         />
         <div
           className={clsx(
@@ -37,6 +67,6 @@ interface Props {
       </div>
     </div>
   );
-}
+};
 
-export default UserAvatar
+export default UserAvatar;
