@@ -42,7 +42,7 @@ export default function Page() {
             navigate("/home");
             toast.success("登录成功");
           } catch (error) {
-            toast.error(error as string);
+            toast.error(String(error));
           }
         })}
         className="relative flex w-[30vw] min-w-[320px] max-w-[400px]  flex-col gap-2 overflow-hidden rounded-md border bg-white p-4 shadow-md"

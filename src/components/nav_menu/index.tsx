@@ -19,25 +19,23 @@ interface OptionData {
   icon: JSX.Element;
 }
 
-interface Props 
-  {
-    options: OptionData[];
-    darkMode: boolean;
-    avatar_show?: boolean;
-    className?: string;
-    avatar_src?: string;
-  }
+interface Props {
+  options: OptionData[];
+  darkMode: boolean;
+  avatar_show?: boolean;
+  className?: string;
+  avatar_src?: string;
+}
 
- const NavMenu:FC<Props>=({
+const NavMenu: FC<Props> = ({
   options,
   darkMode,
   avatar_show,
   className,
-  avatar_src
-})=> {
+  avatar_src,
+}) => {
   const [open, setOpen] = useState<boolean>(false);
   const [option, setOption] = useState<string>("主页");
-
 
   function menuOption(options: string) {
     setOption(options);
@@ -67,7 +65,11 @@ interface Props
             )}
           >
             {avatar_show && (
-              <UserAvatar src={avatar_src} size="medium" className="mx-auto px-10" />
+              <UserAvatar
+                src={avatar_src}
+                size="medium"
+                className="mx-auto px-10"
+              />
             )}
             {options.map((item: OptionData, index) => {
               return (
@@ -78,7 +80,7 @@ interface Props
                   <Link to={item.herf}>
                     <NavigationMenuLink
                       className={clsx(
-                        " px-10 gap-8  group  h-14  flex items-end  bg-background dark:bg-gray-900 text-md font-semibold	 ",
+                        " px-10 gap-8  group  h-14  flex items-end  bg-background dark:bg-gray-900 dark:text-gray-600 text-md font-semibold 	 ",
                         {
                           "transition-[transform] duration-300 translate-x-6  border-l-4 border-l-blue-600":
                             option == item.name,
@@ -100,6 +102,6 @@ interface Props
       </aside>
     </div>
   );
-}
+};
 
 export default NavMenu;

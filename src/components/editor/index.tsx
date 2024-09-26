@@ -17,7 +17,7 @@ const IeseEditor = () => {
     ],
     content: `
       <h3 style="text-align:center">
-        Devs Just Want to Have Fun by Cyndi Lauper
+       Wellcome to the Iese Editor
       </h3>
 
     `,
@@ -26,7 +26,7 @@ const IeseEditor = () => {
   return (
     <div>
       <MenuBar editor={editor} />
-      <Card className="rounded-lg p-2 mt-2">
+      <Card className="rounded-lg p-2 mt-2 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 dark:text-white  overflow-hidden ">
         <EditorContent editor={editor} />
       </Card>
     </div>
