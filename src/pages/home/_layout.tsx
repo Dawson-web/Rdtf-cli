@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import { Outlet, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { IUserFormData } from "@/types/home";
-import { getUserInfo } from "@/service/home";
+import { IUserFormData } from "@/types/user";
+import { getUserInfo } from "@/service/user";
 import NavMenu from "@/components/nav_menu";
 import Loading from "@/components/loading";
 import { themeConfig } from "@/config";
