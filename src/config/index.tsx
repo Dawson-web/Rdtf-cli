@@ -6,6 +6,7 @@ import {
   Mail,
   MapPinned,
   PhoneCall,
+  PodcastIcon,
   ScanEye,
   User,
 } from "lucide-react";
@@ -26,6 +27,11 @@ export const themeConfig = {
         name: "主页",
         herf: "/home",
         icon: <Home />,
+      },
+      {
+        name: "发布",
+        herf: "/home/post",
+        icon: <PodcastIcon />,
       },
       {
         name: "组件",

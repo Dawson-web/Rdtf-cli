@@ -45,6 +45,7 @@ export default function Page() {
         <form
           className="w-full"
           onSubmit={form.onSubmit(async (v) => {
+            console.log(v);
             await sendEmailCode(v.email);
             setStage("verify");
           })}

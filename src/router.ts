@@ -8,6 +8,7 @@ export type Path =
   | `/home`
   | `/home/components`
   | `/home/link`
+  | `/home/post`
   | `/login`
   | `/register`
   | `/seekback`

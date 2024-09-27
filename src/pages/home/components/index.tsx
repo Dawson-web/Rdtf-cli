@@ -1,4 +1,4 @@
-import RenderComponents from "../../../components/render_components";
+import RenderComponents from "@/components/render_components";
 
 export default function Page() {
   return (

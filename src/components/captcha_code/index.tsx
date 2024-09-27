@@ -1,7 +1,7 @@
 import { TextInput } from "@mantine/core";
-import { getCaptcha } from "../../service";
 import { useState, useEffect, FC } from "react";
 import { Tooltip } from "@mantine/core";
+import { getCaptcha } from "@/service";
 
 interface CaptchaCodeProps {
   getCaptchaCode: (code: string) => void;

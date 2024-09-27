@@ -1,11 +1,11 @@
 import clsx from "clsx";
-import NavMenu from "../../components/nav_menu";
-import { themeConfig } from "../../config";
 import { Outlet, useNavigate } from "react-router-dom";
-import { IUserFormData } from "../../types/home";
-import { getUserInfo } from "../../service/home";
 import { useState, useEffect } from "react";
-import Loading from "../../components/loading";
+import { IUserFormData } from "@/types/home";
+import { getUserInfo } from "@/service/home";
+import NavMenu from "@/components/nav_menu";
+import Loading from "@/components/loading";
+import { themeConfig } from "@/config";
 
 export default function Layout() {
   const navigate = useNavigate();
@@ -33,7 +33,7 @@ export default function Layout() {
       />
       <main
         className={clsx(
-          "w-[clac(100vw-1rem] sm:w-[100vw] p-[1rem]  flex flex-col items-center  bg-gray-200 dark:bg-gray-800 min-h-screen"
+          "flex-1 p-[1rem]  flex flex-col items-center  bg-gray-200 dark:bg-gray-800 min-h-screen"
         )}
       >
         <Outlet />
