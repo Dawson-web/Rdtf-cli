@@ -3,7 +3,8 @@ import { ApiOk } from "@/api/types";
 import {
   IAddArticleResponse,
   IArticleFiled,
-  IGetArticleRecommandResponse,
+  IGetArticlePaginationResponse,
+  IPaginationRequest,
 } from "@/types/article";
 
 export const addArticle = async (data: IArticleFiled) => {
@@ -14,9 +15,10 @@ export const addArticle = async (data: IArticleFiled) => {
   });
 };
 
-export const getArticleRecommand = async () => {
-  return await $axios.get<ApiOk<IGetArticleRecommandResponse>>(
-    "/user/articles"
+export const getArticlePagination = async (params?: IPaginationRequest) => {
+  return await $axios.get<ApiOk<IGetArticlePaginationResponse>>(
+    "/user/articles",
+    { params }
   );
 };
 

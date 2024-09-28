@@ -18,20 +18,22 @@ const ArticleItem: FC<Props> = ({ article }) => {
     }
   };
   return (
-    <Card>
-      <div className="flex items-end gap-2">
+    <Card className="flex-grow flex flex-col gap-1 justify-evenly">
+      <header className="flex items-end gap-2">
         <UserAvatar size="small" src={article.UserInfo.avatar}></UserAvatar>
         <div className="font-semibold text-sm">
           作者:{article.UserInfo.username}
         </div>
-      </div>
-      <div className="flex gap-4 items-center mt-4 flex-wrap">
+      </header>
+      <main className="flex gap-4 items-center mt-4 flex-wrap">
         <Badge size="1.1rem" className="p-4">
           {article.type}
         </Badge>
-        <Title className="text-xl font-bold ml-1 ">{article.title}</Title>
-      </div>
-      <Card.Section className="flex items-center justify-end p-2 gap-4">
+        <Title className="text-xl font-bold ml-1 max-h-[100px] overflow-hidden text-ellipsis whitespace-nowrap">
+          {article.title}
+        </Title>
+      </main>
+      <footer className="flex items-center justify-end p-2 gap-4    ">
         <div className="flex  items-center gap-2 ">
           <ThumbsUp
             size="1.1rem"
@@ -43,9 +45,7 @@ const ArticleItem: FC<Props> = ({ article }) => {
         <div className="font-semibold text-sm">
           发布时间：{article.createdAt.split("T")[0]}
         </div>
-
-        {/* <EditorContent editor={editor}></EditorContent> */}
-      </Card.Section>
+      </footer>
     </Card>
   );
 };
