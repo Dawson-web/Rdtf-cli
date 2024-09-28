@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { IUserFormData } from "@/types/user";
 import { getUserInfo } from "@/service/user";
@@ -9,9 +9,13 @@ import { themeConfig } from "@/config";
 
 export default function Layout() {
   const navigate = useNavigate();
+  const location = useLocation(); // 引入 useLocation 钩子
+
   const [userFormData, setUserFormData] = useState<IUserFormData>(
     null as unknown as IUserFormData
   );
+  const [isLoading, setIsLoading] = useState(true);
+  const [isLoadings, setIsLoadings] = useState(true);
 
   useEffect(() => {
     getUserInfo()
@@ -22,7 +26,22 @@ export default function Layout() {
         navigate("/login");
       });
   }, []);
-  if (!userFormData) return <Loading />;
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 1000);
+    return () => clearTimeout(timer);
+  }, [navigate]);
+
+  useEffect(() => {
+    setIsLoadings(true);
+    const timer = setTimeout(() => {
+      setIsLoadings(false);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, [location]);
+
+  if (isLoading) return <Loading />;
+
   return (
     <div className={clsx("flex flex-col  sm:flex-row  w-full   ")}>
       <NavMenu
@@ -36,7 +55,7 @@ export default function Layout() {
           "flex-1 p-[1rem]  flex flex-col items-center  bg-gray-200 dark:bg-gray-800 min-h-screen"
         )}
       >
-        <Outlet />
+        {isLoadings ? <Loading /> : <Outlet />}
       </main>
     </div>
   );

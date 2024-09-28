@@ -1,6 +1,6 @@
 import Highlight from "@tiptap/extension-highlight";
 import TextAlign from "@tiptap/extension-text-align";
-import { EditorContent, useEditor } from "@tiptap/react";
+import { Editor, EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import MenuBar from "./MenuBar";
 import { Badge, Card, Container, Input, Select } from "@mantine/core";
@@ -9,8 +9,11 @@ import SideTip from "../side-tip";
 import { useState } from "react";
 import { IArticleFiled } from "@/types/article";
 
-const IeseEditor = () => {
-  const editor = useEditor({
+const defaultContent = `
+  <div>题目内容描述...<div>
+`;
+export const useAritcleEditor = (content?: string) =>
+  useEditor({
     extensions: [
       StarterKit,
       TextAlign.configure({
@@ -18,12 +21,11 @@ const IeseEditor = () => {
       }),
       Highlight,
     ],
-    content: `
-      <h3 style="text-align:center">
-       Wellcome to the Iese Editor
-      </h3>
-    `,
-  });
+    content: content || defaultContent,
+  }) as Editor;
+
+const IeseEditor = () => {
+  const editor = useAritcleEditor(`<p>...ss..</p>`);
 
   const [article, setArticle] = useState<IArticleFiled>({
     title: "",
@@ -52,7 +54,7 @@ const IeseEditor = () => {
               label="类型"
               placeholder="Pick value"
               defaultValue={"日常"}
-              onChange={(e) => setArticle({ ...article, type: e.target.value })}
+              onChange={(e) => setArticle({ ...article, type: e })}
               data={["日常", "分享", "感悟", "学习"]}
             />
           </div>

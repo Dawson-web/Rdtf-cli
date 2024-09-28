@@ -1,5 +1,3 @@
-"use client";
-
 export function setToken(token: string) {
   localStorage.setItem("token", token);
 }
@@ -19,5 +17,5 @@ export function getValidRole() {
 }
 
 export function logout() {
-  localStorage.clear();
+  localStorage.removeItem("token");
 }

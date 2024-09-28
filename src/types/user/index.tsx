@@ -3,6 +3,12 @@ export interface IAccountData {
   password?: string;
 }
 
+export interface IUserInfo {
+  userId: number;
+  username: string;
+  avatar: string;
+}
+
 export interface IUserFormData {
   id: string;
   introduce: string;

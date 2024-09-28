@@ -12,6 +12,7 @@ import { NavOpen } from "./NavOpen";
 import UserAvatar from "../user_avatar";
 import clsx from "clsx";
 import { Link } from "react-router-dom";
+import { Logout } from "./Logout";
 
 interface OptionData {
   name: string;
@@ -71,11 +72,11 @@ const NavMenu: FC<Props> = ({
                 className="mx-auto px-10"
               />
             )}
-            {options.map((item: OptionData, index) => {
+            {options.map((item: OptionData) => {
               return (
                 <NavigationMenuItem
                   onClick={() => menuOption(item.name)}
-                  key={index}
+                  key={item.herf}
                 >
                   <Link to={item.herf}>
                     <NavigationMenuLink
@@ -97,6 +98,7 @@ const NavMenu: FC<Props> = ({
               );
             })}
             {darkMode && <DarkMode />}
+            <Logout />
           </NavigationMenuList>
         </NavigationMenu>
       </aside>

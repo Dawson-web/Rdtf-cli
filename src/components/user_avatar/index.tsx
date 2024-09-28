@@ -24,6 +24,7 @@ const UserAvatar: FC<Props> = ({ src, size, className }) => {
       formData.append("avatar", file);
       await uploadAvatar(formData)
         .then(() => {
+          window.location.reload();
           toast.success("头像上传成功");
         })
         .catch((err) => {
@@ -40,7 +41,6 @@ const UserAvatar: FC<Props> = ({ src, size, className }) => {
           "w-[80px] h-[80px]": size === "large",
         })}
         onClick={() => {
-          console.log("click");
           avatarUpload();
         }}
       >
