@@ -37,7 +37,13 @@ export interface IAddArticleResponse {
   likesCount: number;
 }
 
-export interface IGetArticleRecommandResponse {
+export interface IGetArticlePaginationResponse {
   articles: IArticleDetail[];
   pagination: IPagination;
+}
+
+export interface IPaginationRequest {
+  title: string;
+  pageSize: number;
+  page: number;
 }

@@ -9,7 +9,7 @@ export default function Page() {
   const [articles, setArticles] = useState<IArticleDetail[]>([]);
   const [page, onChange] = useState(1);
   const [total, setTotal] = useState(0);
-  const [search, setSearch] = useState("");
+  const [search] = useState("");
   const totalPages = useMemo(() => Math.ceil(total / 6), [total]);
   const handleGetArticleRecommand = async () => {
     try {
