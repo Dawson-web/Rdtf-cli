@@ -43,7 +43,7 @@ export default function Layout() {
   if (isLoading) return <Loading />;
 
   return (
-    <div className={clsx("flex flex-col  sm:flex-row  w-full   ")}>
+    <div className={clsx("flex flex-col  sm:flex-row  w-full sm:h-full ")}>
       <NavMenu
         options={themeConfig.menu.options}
         darkMode={themeConfig.menu.darkMode}
@@ -52,7 +52,7 @@ export default function Layout() {
       />
       <main
         className={clsx(
-          "flex-1 p-[1rem]  flex flex-col items-center  bg-gray-200 dark:bg-gray-800 min-h-screen"
+          "flex-1 p-[1rem]  flex flex-col items-center  bg-gray-200 dark:bg-gray-800 min-h-screen h-screen overflow-y-auto mt-[40px] sm:[mt-0]"
         )}
       >
         {isLoadings ? <Loading /> : <Outlet />}

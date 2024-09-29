@@ -6,6 +6,7 @@ import { AlignLeft, X } from "lucide-react";
 interface Fiedls {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  className?: string;
 }
 
 export const NavOpen = (props: Fiedls) => {
@@ -18,7 +19,15 @@ export const NavOpen = (props: Fiedls) => {
   });
 
   return (
-    <div id="nav" className=" bg-white dark:bg-gray-900 sm:hidden h-[40px]">
+    <div
+      id="nav"
+      className={clsx(
+        " bg-white dark:bg-gray-900 sm:hidden h-[40px] z-50 w-full ",
+        {
+          fixed: open,
+        }
+      )}
+    >
       <div
         className={clsx(
           "flex absolute z-50 top-2 left-4 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200",
