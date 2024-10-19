@@ -22,7 +22,7 @@ export const NavOpen = (props: Fiedls) => {
     <div
       id="nav"
       className={clsx(
-        " bg-white dark:bg-gray-900 sm:hidden h-[40px] z-50 w-full ",
+        " bg-white dark:bg-dark sm:hidden h-[40px] z-50 w-full ",
         {
           fixed: open,
         }
@@ -30,7 +30,7 @@ export const NavOpen = (props: Fiedls) => {
     >
       <div
         className={clsx(
-          "flex absolute z-50 top-2 left-4 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200",
+          "flex absolute z-50 top-2 left-4 text-gray-600 hover:text-dark dark:text-gray-400 dark:hover:text-gray-200",
           {
             "transition-transform duration-500 rotate-90": open,
             "transition-transform duration-500 rotate-0": !open,

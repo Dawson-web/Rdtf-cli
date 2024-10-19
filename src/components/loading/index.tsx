@@ -53,7 +53,7 @@ const Loading = () => {
         <div className="animate-bounce  font-bold">Loading...</div>
         <div
           ref={ref}
-          className="relative w-[200px] h-[50px] cursor-pointer border-[2px] dark:border-gray-100 border-gray-900 rounded-md"
+          className="relative w-[200px] h-[50px] cursor-pointer border-[2px] dark:border-gray-100 border-dark rounded-md"
         >
           <animated.div
             className="w-full h-full absolute bg-blue-600 rounded-sm "

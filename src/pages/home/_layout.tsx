@@ -6,10 +6,15 @@ import { getUserInfo } from "@/service/user";
 import NavMenu from "@/components/nav_menu";
 import Loading from "@/components/loading";
 import { themeConfig } from "@/config";
+import { createWebSocket } from "@/service/websocket";
+import ScoketMessage from "@/components/scoket-message";
+
+let isInited = false;
 
 export default function Layout() {
   const navigate = useNavigate();
   const location = useLocation(); // 引入 useLocation 钩子
+  const [message, setMessage] = useState<any>(null);
 
   const [userFormData, setUserFormData] = useState<IUserFormData>(
     null as unknown as IUserFormData
@@ -18,13 +23,18 @@ export default function Layout() {
   const [isLoadings, setIsLoadings] = useState(true);
 
   useEffect(() => {
-    getUserInfo()
-      .then((res) => {
-        setUserFormData(res.data.data);
-      })
-      .catch(() => {
-        navigate("/login");
-      });
+    if (!isInited) {
+      createWebSocket();
+
+      getUserInfo()
+        .then((res) => {
+          setUserFormData(res.data.data);
+        })
+        .catch(() => {
+          navigate("/login");
+        });
+      isInited = true;
+    }
   }, []);
 
   useEffect(() => {
@@ -52,9 +62,11 @@ export default function Layout() {
       />
       <main
         className={clsx(
-          "flex-1 p-[1rem]  flex flex-col items-center  bg-gray-200 dark:bg-gray-800 min-h-screen h-screen overflow-y-auto mt-[40px] sm:[mt-0]"
+          "flex-1 p-[1rem]  flex flex-col items-center  bg-gray-200 dark:bg-gray-800 min-h-screen h-screen overflow-y-auto pt-[40px] sm:[pt-0]"
         )}
       >
+        <ScoketMessage />
+
         {isLoadings ? <Loading /> : <Outlet />}
       </main>
     </div>

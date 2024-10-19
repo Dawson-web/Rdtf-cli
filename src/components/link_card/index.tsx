@@ -14,7 +14,7 @@ export default function LinkCard(props: any) {
 
   return (
     <div
-      className="mx-auto w-[90%] sm:w-[45%] min-w-[320px]  p-4 rounded-lg shadow-md bg-white dark:bg-gray-900 border-transparent hover:border-blue-600 border-2 hover:shadow-sm transition-all duration-300 ease-in-out"
+      className="mx-auto w-[90%] sm:w-[45%] min-w-[320px]  p-4 rounded-lg shadow-md bg-white dark:bg-dark border-transparent hover:border-blue-600 border-2 hover:shadow-sm transition-all duration-300 ease-in-out"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >

@@ -13,7 +13,11 @@ export default {
         slg: "1800px",
       },
     },
-    extend: {},
+    extend: {
+      colors: {
+        dark: "#111827",
+      },
+    },
   },
   plugins: [require("@tailwindcss/typography"), require("tailwindcss-animate")],
 };

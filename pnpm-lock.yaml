@@ -69,8 +69,8 @@ importers:
         specifier: ^2.1.1
         version: 2.1.1
       goeasy:
-        specifier: 2.6.6
-        version: 2.6.6
+        specifier: 2.13.2
+        version: 2.13.2
       lowlight:
         specifier: ^3.1.0
         version: 3.1.0
@@ -1496,8 +1496,8 @@ packages:
     resolution: {integrity: sha512-jhIXaOzy1sb8IyocaruWSn1TjmnBVs8Ayhcy83rmxNJ8q2uWKCAj3CnJY+KpGSXCueAPc0i05kVvVKtP1t9S3g==}
     engines: {node: '>=10'}
 
-  goeasy@2.6.6:
-    resolution: {integrity: sha512-aMvcc43ANMnaRn9C+JJKSmqVtLriBQx+y3VJUKvCBDEsfuEnwFMGa9chzvw/zYJcTSopzv89074QlLa4czsXSg==}
+  goeasy@2.13.2:
+    resolution: {integrity: sha512-T8am5RiVtGC5OHGOcW3UQxjUy/uVo3KFpnIBh5YtuXcuwbYGJXN1xVl4yHux0vUm8hnhASxq5TvOObSQ/puehg==}
 
   graphemer@1.4.0:
     resolution: {integrity: sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==}
@@ -3787,7 +3787,7 @@ snapshots:
       merge2: 1.4.1
       slash: 3.0.0
 
-  goeasy@2.6.6: {}
+  goeasy@2.13.2: {}
 
   graphemer@1.4.0: {}
 

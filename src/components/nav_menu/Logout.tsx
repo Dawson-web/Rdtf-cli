@@ -18,7 +18,7 @@ export const Logout = () => {
     <NavigationMenuItem>
       <NavigationMenuLink
         className={clsx(
-          " px-10 gap-8  group  h-14  flex items-end  bg-background dark:bg-gray-900 dark:text-gray-600 text-md font-semibold cursor-pointer 	 "
+          " px-10 gap-8  group  h-14  flex items-end  bg-background dark:bg-dark dark:text-gray-600 text-md font-semibold cursor-pointer 	 "
         )}
       >
         <LogOutIcon />
