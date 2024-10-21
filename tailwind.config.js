@@ -16,6 +16,8 @@ export default {
     extend: {
       colors: {
         dark: "#111827",
+        theme_zinc: "rgb(112, 26, 255)",
+        theme_gray: "rgb(243, 243, 243)",
       },
     },
   },

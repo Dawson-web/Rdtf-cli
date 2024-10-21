@@ -4,7 +4,7 @@ export default function ImgCard(props: any) {
   const { title, url, descr } = props;
 
   return (
-    <div className="w-[350px]   rounded-lg shadow-md  bg-white dark:bg-dark  hover:scale-[1.02] hover:shadow-sm transition-all duration-300 ease-in-out box-content ">
+    <div className="w-[350px]   rounded-lg shadow-md  bg-white dark:bg-theme_dark  hover:scale-[1.02] hover:shadow-sm transition-all duration-300 ease-in-out box-content ">
       <header>
         <img
           src={
@@ -16,7 +16,7 @@ export default function ImgCard(props: any) {
         />
       </header>
       <article className="w-full text-center text-gray-600 font-medium p-2 flex flex-col items-start transition-all duration-300 ease-in-out">
-        <div className="text-lg font-bold hover:text-blue-600  cursor-pointer">
+        <div className="text-lg font-bold hover:text-theme_zinc  cursor-pointer">
           {title || "ImgCard"}
         </div>
         <div className="text-sm">{descr || "这个人很懒未留简介"}</div>

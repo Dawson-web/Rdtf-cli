@@ -96,7 +96,7 @@ export default function Page() {
 
         {stage === "done" && (
           <div className="flex w-full flex-col items-center p-8">
-            <Check size={48} className="text-blue-600" />
+            <Check size={48} className="text-theme_zinc" />
             <div className="mt-2 font-light">密码重置成功</div>
             <Button component={Link} to="/" className="mt-8">
               继续
@@ -104,7 +104,7 @@ export default function Page() {
           </div>
         )}
 
-        <div className="absolute inset-x-0 top-0 h-1 bg-blue-600"></div>
+        <div className="absolute inset-x-0 top-0 h-1 bg-theme_zinc"></div>
       </div>
     </div>
   );

@@ -63,7 +63,7 @@ const SideTip: FC<SideTipProps> = ({ article, editor }) => {
         发布
       </Button>
       <Card.Section className="p-4">
-        <Badge className="bg-blue-600">提示</Badge>
+        <Badge className="bg-theme_zinc">提示</Badge>
         <div>
           <TipContainer>
             <TipHeader>书写流程</TipHeader>

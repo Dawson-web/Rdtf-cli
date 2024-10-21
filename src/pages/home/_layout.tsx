@@ -8,13 +8,17 @@ import Loading from "@/components/loading";
 import { themeConfig } from "@/config";
 import { createWebSocket } from "@/service/websocket";
 import ScoketMessage from "@/components/scoket-message";
+import { IWSMessage } from "@/types/websocket";
 
 let isInited = false;
 
 export default function Layout() {
   const navigate = useNavigate();
   const location = useLocation(); // 引入 useLocation 钩子
-  const [message, setMessage] = useState<any>(null);
+  const [message, setMessage] = useState<IWSMessage>({
+    type: "tetx",
+    content: "欢迎来到 ISES",
+  });
 
   const [userFormData, setUserFormData] = useState<IUserFormData>(
     null as unknown as IUserFormData
@@ -24,7 +28,7 @@ export default function Layout() {
 
   useEffect(() => {
     if (!isInited) {
-      createWebSocket();
+      createWebSocket(setMessage);
 
       getUserInfo()
         .then((res) => {
@@ -65,7 +69,7 @@ export default function Layout() {
           "flex-1 p-[1rem]  flex flex-col items-center  bg-gray-200 dark:bg-gray-800 min-h-screen h-screen overflow-y-auto pt-[40px] sm:[pt-0]"
         )}
       >
-        <ScoketMessage />
+        <ScoketMessage message={message} className="fixed sm:top-2 top-0 " />
 
         {isLoadings ? <Loading /> : <Outlet />}
       </main>

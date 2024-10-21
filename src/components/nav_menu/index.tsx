@@ -55,7 +55,7 @@
 //       {/* 移动端控制菜单打开按钮 */}
 //       <NavOpen open={open} setOpen={setOpen} className={clsx("z-50")} />
 //       <aside
-//         className={clsx("bg-white dark:bg-dark ", {
+//         className={clsx("bg-white dark:bg-theme_dark ", {
 //           "absolute w-screen z-40 mt-[40px] h-screen ": open,
 //           "sm:block hidden": !open,
 //         })}
@@ -63,7 +63,7 @@
 //         <NavigationMenu>
 //           <NavigationMenuList
 //             className={clsx(
-//               " sm:flex flex-col justify-start   overflow-hidden pt-[20px] sm:pt-[30px]  bg-white dark:bg-dark"
+//               " sm:flex flex-col justify-start   overflow-hidden pt-[20px] sm:pt-[30px]  bg-white dark:bg-theme_dark"
 //             )}
 //           >
 //             {avatar_show && (
@@ -82,9 +82,9 @@
 //                   <Link to={item.herf}>
 //                     <NavigationMenuLink
 //                       className={clsx(
-//                         " px-10 gap-8  group  h-14  flex items-end  bg-background dark:bg-dark dark:text-gray-600 text-md font-semibold 	 ",
+//                         " px-10 gap-8  group  h-14  flex items-end  bg-background dark:bg-theme_dark dark:text-gray-600 text-md font-semibold 	 ",
 //                         {
-//                           "transition-[transform] duration-300 translate-x-6  border-l-4 border-l-blue-600":
+//                           "transition-[transform] duration-300 translate-x-6  border-l-4 border-l-theme_zinc":
 //                             option == item.name,
 //                           "transition-[transform] translate-x-0":
 //                             option !== item.name,
@@ -156,7 +156,7 @@ const NavMenu: FC<Props> = ({
   return (
     <div
       className={clsx(
-        "sm:w-[200px] sm:h-screen h-auto sm:relative fixed z-50 w-full shadow-md dark:bg-dark",
+        "sm:w-[200px] sm:h-screen h-auto sm:relative fixed z-50 w-full shadow-md dark:bg-theme_dark",
         {
           "flex flex-col justify-start h-screen ": open,
         },
@@ -166,7 +166,7 @@ const NavMenu: FC<Props> = ({
       {/* 移动端控制菜单打开按钮 */}
       <NavOpen open={open} setOpen={setOpen} />
       <aside
-        className={clsx("bg-white dark:bg-dark ", {
+        className={clsx("bg-white dark:bg-theme_dark ", {
           "fixed  z-40 mt-[40px] h-screen w-full": open,
           "sm:block hidden": !open,
         })}
@@ -174,7 +174,7 @@ const NavMenu: FC<Props> = ({
         <NavigationMenu>
           <NavigationMenuList
             className={clsx(
-              " sm:flex flex-col justify-start   overflow-hidden pt-[20px] sm:pt-[30px]  bg-white dark:bg-dark"
+              " sm:flex flex-col justify-start   overflow-hidden pt-[20px] sm:pt-[30px]  bg-white dark:bg-theme_dark"
             )}
           >
             {avatar_show && (
@@ -193,9 +193,9 @@ const NavMenu: FC<Props> = ({
                   <Link to={item.herf}>
                     <NavigationMenuLink
                       className={clsx(
-                        " px-10 gap-8  group  h-14  flex items-end  bg-background dark:bg-dark dark:text-gray-600 text-md font-semibold 	 ",
+                        " px-10 gap-8  group my-4   flex items-end  bg-background dark:bg-theme_dark dark:text-gray-600 text-md font-semibold 	 ",
                         {
-                          "transition-[transform] duration-300 translate-x-6  border-l-4 border-l-blue-600":
+                          "transition-[transform] duration-300 translate-x-6  border-l-4 border-l-theme_zinc":
                             option == item.name,
                           "transition-[transform] translate-x-0":
                             option !== item.name,

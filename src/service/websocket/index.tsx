@@ -1,3 +1,5 @@
+import { IWSMessage } from "@/types/websocket";
+
 // import { messages } from "@/layouts/main-header";
 let lockReconnect = false;
 
@@ -8,11 +10,12 @@ export function contectWebSocket() {
   return { socket, url };
 }
 
-export function createWebSocket() {
+export async function createWebSocket(
+  setMessage: React.Dispatch<React.SetStateAction<IWSMessage>>
+) {
   let timer: null | NodeJS.Timer = null;
   let { socket, url } = contectWebSocket();
   socket.onopen = () => {
-    console.log("WebSocket connection opened");
     setInterval(() => {
       socket.send(
         JSON.stringify({
@@ -26,9 +29,10 @@ export function createWebSocket() {
   socket.onmessage = function (event) {
     try {
       const message = JSON.parse(event.data);
+      setMessage(message);
       console.log("Received message:", message);
     } catch (e) {
-      console.log("Received non-JSON data:", event.data);
+      console.log("Received non-JSON data:", e);
     }
   };
 
@@ -61,6 +65,7 @@ export function createWebSocket() {
           lockReconnect = true;
           clearInterval(timer);
           timer = null;
+          socket.send(JSON.stringify({ type: "subscribe", topic: "news" }));
         };
 
         socket.onclose = function () {

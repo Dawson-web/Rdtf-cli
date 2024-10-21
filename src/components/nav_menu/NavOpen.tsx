@@ -22,7 +22,7 @@ export const NavOpen = (props: Fiedls) => {
     <div
       id="nav"
       className={clsx(
-        " bg-white dark:bg-dark sm:hidden h-[40px] z-50 w-full ",
+        " bg-white dark:bg-theme_dark sm:hidden h-[40px] z-50 w-full ",
         {
           fixed: open,
         }

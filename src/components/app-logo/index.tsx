@@ -3,7 +3,7 @@ export function AppLogo() {
     <div className="flex items-center gap-2">
       <div className="font-comfortaa text-2xl font-semibold">
         Ises
-        <span className="text-blue-600">.</span>
+        <span className="text-theme_zinc">.</span>
       </div>
     </div>
   );

@@ -74,7 +74,7 @@ export default function Page() {
           <Button type="submit">登录</Button>
         </Group>
 
-        <div className="absolute inset-x-0 top-0 h-1 bg-blue-500"></div>
+        <div className="absolute inset-x-0 top-0 h-1 bg-theme_zinc"></div>
       </form>
     </div>
   );
