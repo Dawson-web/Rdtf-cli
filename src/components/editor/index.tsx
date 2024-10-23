@@ -41,7 +41,7 @@ const IeseEditor = () => {
         <Card className="rounded-lg p-4 mt-2 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 dark:text-white  overflow-hidden flex flex-col gap-4 h-full">
           <div className="flex  gap-4 nowrap ">
             <div className="flex-1">
-              <Badge className="text-[1rem] bg-theme_zinc">标题</Badge>
+              <Badge className="text-[1rem] bg-theme_blue">标题</Badge>
               <Input
                 className="text-center mt-1 min-w-[200px] "
                 placeholder="Title"
@@ -58,7 +58,7 @@ const IeseEditor = () => {
               data={["日常", "分享", "感悟", "学习"]}
             />
           </div>
-          <Badge className="text-[1rem] bg-theme_zinc mt-4">文章</Badge>
+          <Badge className="text-[1rem] bg-theme_blue mt-4">文章</Badge>
           <Container className="border border-gray-300 dark:border-gray-600 rounded-lg w-full mx-0 p-0 ">
             <EditorContent editor={editor} />
           </Container>

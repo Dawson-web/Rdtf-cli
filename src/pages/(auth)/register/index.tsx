@@ -9,7 +9,7 @@ import {
 import { useForm } from "@mantine/form";
 
 import { useState } from "react";
-import { AppLogo } from "../../../components/app-logo";
+import AppLogo from "../../../components/app-logo";
 import { Bell, Check } from "lucide-react";
 import { Link } from "react-router-dom";
 import { register, sendEmailCode } from "../../../service";
@@ -105,7 +105,7 @@ export default function Page() {
 
         {stage === "done" && (
           <div className="flex w-full flex-col items-center p-8">
-            <Check size={48} className="text-theme_zinc" />
+            <Check size={48} className="text-theme_blue" />
             <div className="mt-2 font-light">注册成功</div>
             <Button component={Link} to="/login" className="mt-8">
               继续
@@ -113,7 +113,7 @@ export default function Page() {
           </div>
         )}
 
-        <div className="absolute inset-x-0 top-0 h-1 bg-theme_zinc"></div>
+        <div className="absolute inset-x-0 top-0 h-1 bg-theme_blue"></div>
       </div>
     </div>
   );

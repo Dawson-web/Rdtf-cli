@@ -43,7 +43,7 @@ export const Logout = () => {
                 navigate("/login");
                 toast.success("退出成功");
               }}
-              className="bg-theme_zinc"
+              className="bg-theme_blue"
             >
               确认
             </Button>

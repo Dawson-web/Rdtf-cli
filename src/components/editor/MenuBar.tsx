@@ -26,7 +26,7 @@ const MenuBar: FC<IEditorMenuBarProps> = ({ editor }) => {
                 key={itemProps.tooltip + i}
                 editor={editor}
                 className={
-                  "bg-theme_zinc hover:bg-blue-700 p-[0.5em] rounded-md text-white"
+                  "bg-theme_blue hover:bg-blue-700 p-[0.5em] rounded-md text-white"
                 }
               />
             ))}

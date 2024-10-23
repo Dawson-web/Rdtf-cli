@@ -1,7 +1,7 @@
 import { Button, Group, PasswordInput, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { useRef } from "react";
-import { AppLogo } from "../../../components/app-logo";
+import AppLogo from "../../../components/app-logo";
 import { Link, useNavigate } from "react-router-dom";
 import CaptchaCode from "../../../components/captcha_code";
 import { ILoginFileds } from "../../../types";
@@ -74,7 +74,7 @@ export default function Page() {
           <Button type="submit">登录</Button>
         </Group>
 
-        <div className="absolute inset-x-0 top-0 h-1 bg-theme_zinc"></div>
+        <div className="absolute inset-x-0 top-0 h-1 bg-theme_blue"></div>
       </form>
     </div>
   );

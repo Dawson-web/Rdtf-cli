@@ -11,7 +11,7 @@ import { useForm } from "@mantine/form";
 import { useState } from "react";
 import { Bell, Check } from "lucide-react";
 import { Link } from "react-router-dom";
-import { AppLogo } from "../../../components/app-logo";
+import AppLogo from "../../../components/app-logo";
 import { seekback, sendEmailCode } from "../../../service";
 import { toast } from "sonner";
 import { ISeekBackFileds } from "../../../types";
@@ -96,7 +96,7 @@ export default function Page() {
 
         {stage === "done" && (
           <div className="flex w-full flex-col items-center p-8">
-            <Check size={48} className="text-theme_zinc" />
+            <Check size={48} className="text-theme_blue" />
             <div className="mt-2 font-light">密码重置成功</div>
             <Button component={Link} to="/" className="mt-8">
               继续
@@ -104,7 +104,7 @@ export default function Page() {
           </div>
         )}
 
-        <div className="absolute inset-x-0 top-0 h-1 bg-theme_zinc"></div>
+        <div className="absolute inset-x-0 top-0 h-1 bg-theme_blue"></div>
       </div>
     </div>
   );

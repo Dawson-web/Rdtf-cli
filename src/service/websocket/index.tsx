@@ -1,6 +1,5 @@
 import { IWSMessage } from "@/types/websocket";
 
-// import { messages } from "@/layouts/main-header";
 let lockReconnect = false;
 
 export function contectWebSocket() {
@@ -84,8 +83,3 @@ export async function createWebSocket(
 
   return socket;
 }
-
-// 使用时传入 token
-
-// 您可以在这里调用 socket.send() 发送消息给服务器
-// socket.send(JSON.stringify({ type: 'subscribe', topic: 'news' }));

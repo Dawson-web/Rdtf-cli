@@ -84,7 +84,7 @@
 //                       className={clsx(
 //                         " px-10 gap-8  group  h-14  flex items-end  bg-background dark:bg-theme_dark dark:text-gray-600 text-md font-semibold 	 ",
 //                         {
-//                           "transition-[transform] duration-300 translate-x-6  border-l-4 border-l-theme_zinc":
+//                           "transition-[transform] duration-300 translate-x-6  border-l-4 border-l-theme_blue":
 //                             option == item.name,
 //                           "transition-[transform] translate-x-0":
 //                             option !== item.name,
@@ -124,6 +124,7 @@ import UserAvatar from "../user_avatar";
 import clsx from "clsx";
 import { Link } from "react-router-dom";
 import { Logout } from "./Logout";
+import AppLogo from "../app-logo";
 
 interface OptionData {
   name: string;
@@ -177,13 +178,15 @@ const NavMenu: FC<Props> = ({
               " sm:flex flex-col justify-start   overflow-hidden pt-[20px] sm:pt-[30px]  bg-white dark:bg-theme_dark"
             )}
           >
+            <AppLogo className="ml-[40px]  text-[35px] dark:text-gray-600" />
             {avatar_show && (
               <UserAvatar
                 src={avatar_src}
                 size="medium"
-                className="mx-auto px-10"
+                className="mx-auto px-10 mt-[30px]"
               />
             )}
+
             {options.map((item: OptionData) => {
               return (
                 <NavigationMenuItem
@@ -195,7 +198,7 @@ const NavMenu: FC<Props> = ({
                       className={clsx(
                         " px-10 gap-8  group my-4   flex items-end  bg-background dark:bg-theme_dark dark:text-gray-600 text-md font-semibold 	 ",
                         {
-                          "transition-[transform] duration-300 translate-x-6  border-l-4 border-l-theme_zinc":
+                          "transition-[transform] duration-300 translate-x-6  border-l-4 border-l-theme_blue":
                             option == item.name,
                           "transition-[transform] translate-x-0":
                             option !== item.name,

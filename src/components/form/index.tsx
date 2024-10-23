@@ -7,7 +7,7 @@ import {
   Checkbox,
   FileInput,
 } from "@mantine/core";
-import { AppLogo } from "../app-logo";
+import AppLogo from "../app-logo";
 
 export default function Form(props: any) {
   const { form_config, form, fn } = props;
@@ -74,7 +74,7 @@ export default function Form(props: any) {
           <Button type="submit">提交</Button>
         </Group>
 
-        <div className="absolute inset-x-0 top-0 h-1 bg-theme_zinc"></div>
+        <div className="absolute inset-x-0 top-0 h-1 bg-theme_blue"></div>
       </form>
     </div>
   );

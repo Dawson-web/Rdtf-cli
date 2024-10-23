@@ -5,7 +5,7 @@ export default function Page() {
     <>
       <div className="flex flex-col items-center justify-center h-screen ">
         <div className="text-2xl sm:text-4xl font-bold flex gap-2 flex-col p-8 bg-gray-100 rounded-md min-w-[300px] ">
-          <h1 className="text-theme_zinc ">Ises.</h1>
+          <h1 className="text-theme_blue ">Ises.</h1>
           <h1>即刻短文</h1>
           <main className="text-lg sm:text-xl text-gray-500 mt-2 ">
             留下你的故事
@@ -18,13 +18,13 @@ export default function Page() {
           <div className="text-sm mt-[10px] sm:text-xl font-medium text-gray-700 flex gap-4 ">
             <Link
               to={"/login"}
-              className="py-1 px-2 bg-theme_zinc text-white rounded-md hover:bg-blue-700 flex-1 text-center"
+              className="py-1 px-2 bg-theme_blue text-white rounded-md hover:bg-blue-700 flex-1 text-center"
             >
               登录
             </Link>
             <Link
               to={"/register"}
-              className="py-1 px-2 bg-theme_zinc text-white rounded-md hover:bg-blue-700 flex-1 text-center"
+              className="py-1 px-2 bg-theme_blue text-white rounded-md hover:bg-blue-700 flex-1 text-center"
             >
               注册
             </Link>

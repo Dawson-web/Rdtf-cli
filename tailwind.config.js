@@ -15,9 +15,11 @@ export default {
     },
     extend: {
       colors: {
-        dark: "#111827",
+        theme_dark: "#0C0C0C",
+        theme_dark_sm: "#121212",
         theme_zinc: "rgb(112, 26, 255)",
         theme_gray: "rgb(243, 243, 243)",
+        theme_blue: "#2563eb",
       },
     },
   },

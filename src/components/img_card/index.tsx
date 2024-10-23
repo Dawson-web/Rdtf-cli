@@ -16,7 +16,7 @@ export default function ImgCard(props: any) {
         />
       </header>
       <article className="w-full text-center text-gray-600 font-medium p-2 flex flex-col items-start transition-all duration-300 ease-in-out">
-        <div className="text-lg font-bold hover:text-theme_zinc  cursor-pointer">
+        <div className="text-lg font-bold hover:text-theme_blue  cursor-pointer">
           {title || "ImgCard"}
         </div>
         <div className="text-sm">{descr || "这个人很懒未留简介"}</div>
