@@ -62,7 +62,7 @@ export async function createWebSocket(
         socket.onopen = function () {
           console.log("连接成功");
           lockReconnect = true;
-          clearInterval(timer);
+          clearInterval(timer as unknown as number);
           timer = null;
           socket.send(JSON.stringify({ type: "subscribe", topic: "news" }));
         };

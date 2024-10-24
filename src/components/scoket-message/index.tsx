@@ -49,8 +49,8 @@ const ScoketMessage: FC<{
         "flex items-center flex-nowrap justify-around gap-2 w-auto max-w-[300px] sm:max-w-[50vw] bg-theme_gray/40 dark:bg-black/40 dark:text-theme_gray rounded-md  z-50 overflow-hidden  backdrop-blur-sm font-medium  shadow-2xl ",
         className,
         {
-          "transition-all duration-500  h-10 ease-in-out ": show,
-          "transition-all duration-500  h-0 ease-in-out ": !show,
+          "transition-[height] duration-500  h-10 ease-in-out ": show,
+          "transition-[height] duration-500  h-0 ease-in-out ": !show,
         }
       )}
     >

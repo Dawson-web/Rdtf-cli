@@ -69,7 +69,10 @@ export default function Layout() {
           "flex-1 p-[1rem]  flex flex-col items-center  bg-gray-200 dark:bg-theme_dark_sm min-h-screen h-screen overflow-y-auto pt-[40px] sm:[pt-0]"
         )}
       >
-        <ScoketMessage message={message} className="fixed sm:top-2 top-0 " />
+        <ScoketMessage
+          message={message}
+          className="fixed sm:top-2 top-0 ml-4  "
+        />
 
         {isLoadings ? <Loading /> : <Outlet />}
       </main>

@@ -54,7 +54,7 @@ const SideTip: FC<SideTipProps> = ({ article, editor }) => {
   };
 
   return (
-    <Card className="rounded-lg dark:bg-gray-800 shadow-lg border border-gray-300 dark:border-gray-600">
+    <Card className="rounded-lg dark:bg-theme_dark shadow-lg border border-gray-300 dark:border-gray-600">
       <Button
         variant="gradient"
         gradient={{ from: "blue", to: "cyan", deg: 90 }}
@@ -64,7 +64,7 @@ const SideTip: FC<SideTipProps> = ({ article, editor }) => {
       </Button>
       <Card.Section className="p-4">
         <Badge className="bg-theme_blue">提示</Badge>
-        <div>
+        <div className="dark:text-white">
           <TipContainer>
             <TipHeader>书写流程</TipHeader>
             <TipContent>
@@ -75,7 +75,7 @@ const SideTip: FC<SideTipProps> = ({ article, editor }) => {
           </TipContainer>
           <TipContainer>
             <TipHeader>
-              <div className="flex justify-between items-center">
+              <div className="flex justify-between items-center ">
                 Markdown 支持 <MarkDownLogo />
               </div>
             </TipHeader>

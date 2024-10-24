@@ -18,7 +18,7 @@ export const Logout = () => {
     <NavigationMenuItem>
       <NavigationMenuLink
         className={clsx(
-          " px-10 gap-8  group  my-4  flex items-end  bg-background dark:bg-theme_dark dark:text-gray-600 text-md font-semibold cursor-pointer 	 "
+          " px-10 gap-8  group sm:my-4 my-6 flex items-end  bg-background dark:bg-theme_dark dark:text-gray-600 text-md font-semibold cursor-pointer 	 "
         )}
       >
         <LogOutIcon />
@@ -30,6 +30,7 @@ export const Logout = () => {
           onClose={close}
           size="lg"
           radius="md"
+          className="dark:bg-theme_dark dark:text-gray-600"
         >
           <Badge color="yellow" variant="filled">
             注意
@@ -43,7 +44,7 @@ export const Logout = () => {
                 navigate("/login");
                 toast.success("退出成功");
               }}
-              className="bg-theme_blue"
+              className="bg-theme_blue "
             >
               确认
             </Button>

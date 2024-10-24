@@ -50,10 +50,12 @@ const Loading = () => {
   return (
     <div className="h-screen ">
       <div className="flex flex-col items-center h-full justify-center mt-[-50px]">
-        <div className="animate-bounce  font-bold">Loading...</div>
+        <div className="animate-bounce  font-bold dark:text-white">
+          Loading...
+        </div>
         <div
           ref={ref}
-          className="relative w-[200px] h-[50px] cursor-pointer border-[2px] dark:border-gray-100 border-theme_gray rounded-md"
+          className="relative w-[200px] h-[50px] cursor-pointer border-[2px] dark:border-gray-100 border-black rounded-md "
         >
           <animated.div
             className="w-full h-full absolute bg-theme_blue rounded-sm "

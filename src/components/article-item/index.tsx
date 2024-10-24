@@ -18,7 +18,7 @@ const ArticleItem: FC<Props> = ({ article }) => {
     }
   };
   return (
-    <Card className="flex-grow flex flex-col gap-1 justify-evenly">
+    <Card className="flex-grow flex flex-col gap-1 justify-evenly dark:bg-theme_dark dark:text-white">
       <header className="flex items-end gap-2">
         <UserAvatar size="small" src={article.UserInfo.avatar}></UserAvatar>
         <div className="font-semibold text-sm">

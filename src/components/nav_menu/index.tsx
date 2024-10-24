@@ -183,22 +183,23 @@ const NavMenu: FC<Props> = ({
               <UserAvatar
                 src={avatar_src}
                 size="medium"
-                className="mx-auto px-10 mt-[30px]"
+                className="mx-auto px-10 mt-[40px]"
               />
             )}
 
             {options.map((item: OptionData) => {
               return (
-                <NavigationMenuItem
+                <Link
+                  to={item.herf}
                   onClick={() => menuOption(item.name)}
                   key={item.herf}
                 >
-                  <Link to={item.herf}>
+                  <NavigationMenuItem>
                     <NavigationMenuLink
                       className={clsx(
-                        " px-10 gap-8  group my-4   flex items-end  bg-background dark:bg-theme_dark dark:text-gray-600 text-md font-semibold 	 ",
+                        " px-10 gap-8  group sm:my-4 my-6  flex items-end  bg-background dark:bg-theme_dark dark:text-gray-600 text-md font-semibold 	 ",
                         {
-                          "transition-[transform] duration-300 translate-x-6  border-l-4 border-l-theme_blue":
+                          "transition-[transform] duration-300 translate-x-6  border-l-4 border-l-theme_blue dark:text-theme_gray":
                             option == item.name,
                           "transition-[transform] translate-x-0":
                             option !== item.name,
@@ -208,8 +209,8 @@ const NavMenu: FC<Props> = ({
                       {item.icon}
                       {item.name}
                     </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
+                  </NavigationMenuItem>
+                </Link>
               );
             })}
             {darkMode && <DarkMode />}

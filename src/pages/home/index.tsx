@@ -31,7 +31,7 @@ export default function Page() {
   if (!articles.length) return null;
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full ">
         <div className="w-full flex flex-col gap-2 justity-between ">
           {articles.slice(0, articles.length / 2).map((article) => {
             return <ArticleItem article={article} />;

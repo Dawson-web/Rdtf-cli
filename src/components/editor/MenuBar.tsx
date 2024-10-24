@@ -16,7 +16,7 @@ const MenuBar: FC<IEditorMenuBarProps> = ({ editor }) => {
 
   const menuItemGroups = getMenuItemGroups(editor);
   return (
-    <div className="w-[100%] flex gap-2 flex-wrap bg-gray-00 p-2 rounded-md bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 justify-center">
+    <div className="w-[100%] flex gap-2 flex-wrap bg-gray-00 p-2 rounded-md bg-white dark:bg-theme_dark border border-gray-300 dark:border-gray-700 justify-center">
       {menuItemGroups.map((group) => {
         return (
           <>

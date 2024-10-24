@@ -38,7 +38,7 @@ const IeseEditor = () => {
       <div className="col-span-2 ">
         <MenuBar editor={editor} />
 
-        <Card className="rounded-lg p-4 mt-2 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 dark:text-white  overflow-hidden flex flex-col gap-4 h-full">
+        <Card className="rounded-lg p-4 mt-2 dark:bg-theme_dark border border-gray-300 dark:border-gray-600 dark:text-white  overflow-hidden flex flex-col gap-4 h-full">
           <div className="flex  gap-4 nowrap ">
             <div className="flex-1">
               <Badge className="text-[1rem] bg-theme_blue">标题</Badge>
